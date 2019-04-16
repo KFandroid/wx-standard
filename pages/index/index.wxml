@@ -1,0 +1,28 @@
+<!--pages/index/index.wxml-->
+<view class="index">
+<!-- <view style="height: 100px;width: 100px; border:2px solid red;" bindtap="changePageSrc"></view> -->
+  <view class="search-btn">
+  
+
+    <navigator url="../../pages/search/search" class="btn sea_btn" bindtap="viewTap" >
+      <image src="../../utils/images/search.png" style='max-width: 50rpx; height: 34rpx;' mode="aspectFit"></image>
+      请输入股票代码/名称/简拼
+    </navigator>
+  </view>
+    <component-indexPanel></component-indexPanel>
+  <component-indexSearch t101="{{t101}}" 
+  t106="{{t106}}" 
+  t102="{{t102}}" 
+  pickerDate='{{dateBottom}}'
+   bind:getK103="getK103" 
+   t103="{{t103}}" 
+   scrollHeight="{{indexSearchHeight}}"
+   bind:stopGetK103="stopGetK103" bind:closeGetChild="closeGetChild"
+    bind:dateChange="dateChange" 
+   bind:getChild="getT102"
+   ></component-indexSearch>
+  <view class="custom-stock">
+    <component-optionalStock scrollHeight="160"  bind:getK107="getK107" t107="{{t107}}"></component-optionalStock>
+  </view>
+  <!-- <web-view class="{{pagesrc == '' ? 'hide': ''}}" src="{{pagesrc}}"></web-view> -->
+</view>

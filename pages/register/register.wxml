@@ -1,0 +1,35 @@
+<!--pages/register/register.wxml-->
+<form >
+    <view class="reg reg_acc">
+        <view class="reg_title">
+            账<view class="blank"></view>号:
+        </view>
+        <input class="tele" type="number" placeholder="请输入手机号" name="account" bindinput="accNull" auto-focus />
+        <view class="send_code" bindtap="send_code">
+            发送验证码
+        </view>
+    </view>
+    <view class="reg reg_vail">
+        <view class="reg_title">
+            验证码:
+        </view>
+        <input type="text" placeholder="请输入验证码" name="code"  bindinput="codeNull" auto-focus />
+    </view>
+    <view class="reg reg_pass">
+        <view class="reg_title">
+            密<view class="blank"></view>码:
+        </view>
+        <input type="password" placeholder="请确认密码" name="pwd"  bindinput="pwdNull" auto-focus />
+    </view>
+        <view class="reg reg_pass">
+        <view class="reg_title">
+            确认密码:
+        </view>
+        <input type="password" placeholder="请输入密码" name="vpwd"  bindinput="vpwdNull" auto-focus />
+    </view>
+
+    <view class="reg_btn">
+        <button class="zhuce" type="primary" size="default" plain="{{plain}}"  bindtap="submit" hover-class="none">注册</button>
+
+    </view>
+</form>

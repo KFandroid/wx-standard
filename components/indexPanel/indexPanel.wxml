@@ -1,0 +1,34 @@
+<!--compontent/indexPanel/indexPanel.wxml-->
+<view class="cont">
+    <view class="indexpanel" >
+        <view class="index_detail"wx:for="{{indexList}}" bindtap="navigateToIndex" wx:key="{{index}}" data-stock="{{item}}">
+            <!--<view class="index index_name">
+                    {{item.stockName}}  
+            </view>
+            <view class="index index_data">
+                    {{item.cjj}}
+            </view>
+            <view class="index_rf">
+                    {{item.cj}}
+                    ({{item.rise}})
+              
+            </view>-->
+            <view class="index1 index_name">
+                {{item.stockName}} 
+            </view>
+            <view class="index2">
+                <view class="index_data">
+                        {{item.cjj}}
+                </view>
+                <view class="index_rf">
+                       {{item.rise}}
+                </view>
+            </view>
+        </view>
+        <navigator class="index_search"  url="../../pages/selectIndex/selectIndex">
+                <view class="triangle_border_right">
+                    
+                </view>
+        </navigator>
+    </view>
+</view>

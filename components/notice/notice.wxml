@@ -1,0 +1,19 @@
+<!--components/notice/notice.wxml-->
+<scroll-view class="container" scroll-y="true" style="height: {{height}}px;">
+    <view wx:for="{{notieItems}}" class="list-cont">
+        <view class="list-title">
+            <view class="listIcon"></view>
+            <view class="listContent">
+                {{item.content}}
+            </view>
+        </view>
+        <view class="listTime">
+            {{item.time}}
+        </view>
+    </view>
+</scroll-view>
+<view class="pagination-container">
+      <view class='pageBtn' bindtap='pageUp' hidden="{{thisPage === 1}}">上一页</view>
+      <text>{{thisPage}}/{{totalPage}}页</text>
+      <view class='pageBtn' bindtap='pageDown' hidden="{{thisPage === totalPage}}">下一页</view>
+    </view>

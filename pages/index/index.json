@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "component-indexSearch": "../../components/indexSearch2/indexSearch2",
+    "component-optionalStock": "../../components/optionalStock/optionalStock",
+    "component-indexPanel": "../../components/indexPanel/indexPanel"
+  }
+}

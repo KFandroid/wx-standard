@@ -1,0 +1,129 @@
+@-webkit-keyframes load{
+0%{
+transform:rotate(0);
+}
+50%{
+transform:rotate(160deg);
+}
+100%{
+transform:rotate(360deg);
+}
+}
+.loading{
+width: 80rpx;
+height: 80rpx;
+border: 8rpx solid #aaa;
+border-left-color: #ddd;
+border-radius: 48rpx;
+-webkit-animation:load 1s linear 1s infinite;
+margin:0 auto;
+}
+image.icon{
+  width:100%;
+  height:280rpx;
+}
+.content{
+  background-color:#6cf;
+  display:flex;
+  align-items:center;
+  padding:100rpx 50rpx;
+  flex-wrap: wrap;
+  
+}
+
+.content text{
+  display:flex;
+  padding-right:10rpx;
+  flex:1
+}
+input{
+  display:flex;
+  background-color:white;
+  flex:3;
+  max-width:380rpx;
+}
+.box{
+  display:flex;
+  flex-wrap:wrap;
+}
+.up{
+  padding-top:50rpx;  
+}
+
+.blank{
+  flex:1;
+  visibility:hidden;
+}
+.rgq{
+  font-size:28rpx;
+  color:blue ;
+  padding-left: 8rpx;
+}
+
+button{
+  display:flex;
+  flex:1;
+  
+  color: white !important;
+}
+button.wx_login{
+  background-color:#06c !important;
+}
+button.acc_login{
+  background-color:#0c0 !important;
+}
+
+
+
+.version_choice{
+  background-color:#6cf;
+  width: 100%;
+
+}
+label{
+  display:block;
+}
+.radg{
+  margin:50rpx 40rpx;
+}
+.xs{
+  display:none;
+}
+.yc{
+  display:flex;
+}
+
+.popup{
+  width:100%;
+  height:100%;
+  display:block;
+  position:absolute;
+  top:0;
+  left:0;
+  background-color:#bdbdbd;
+  opacity:0.5
+}
+
+.load_box{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%)
+}
+.hide {
+  display:none;
+}
+.show {
+  display: flex;
+}
+.isload{
+  display:block;
+}
+.qs{
+  display:flex;
+  flex:1;
+  max-width: 50rpx;
+  height: 34rpx;
+  padding-left:8rpx;
+
+}

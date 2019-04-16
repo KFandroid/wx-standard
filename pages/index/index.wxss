@@ -1,0 +1,22 @@
+/* pages/index/index.wxss */
+.search-btn{
+    padding:20rpx 40rpx;
+    height:42px;
+    box-sizing: border-box;
+}
+.sea_btn{
+    
+    box-sizing:border-box;
+    border:2rpx solid gray;
+    border-radius:32rpx;
+    font-size: 13px;
+    text-align: center;
+    background-color: #f0f1f1;
+}
+
+.index {
+    margin:0 20rpx;
+}
+.hide {
+    display: none;
+}

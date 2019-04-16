@@ -1,0 +1,35 @@
+/* pages/fgPwd/fgPwd.wxss */
+.reg{
+    border-bottom:2rpx solid black;
+    margin:20rpx 30rpx;
+    display:flex;
+    position:relative;
+}
+.reg_title{
+   
+}
+.reg>input{
+   padding-left:50rpx;
+   width:50%;
+    
+
+}
+.blank{
+    display:inline-block;
+    margin:20rpx;
+}
+.reg_btn{
+    padding:40rpx 30rpx 0;
+}
+button.zhuce{
+    background-color:#6cf;
+    line-height:1.5;
+}
+
+.send_code{
+    color:#6cf;
+    font-size:28rpx;
+    position:absolute;
+    right:0;
+    bottom:10rpx;
+}

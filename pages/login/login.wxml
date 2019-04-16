@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<view class="container">
+  <image class="icon" src="../../utils/images/icon.jpg" mode="aspectFill"/>
+
+  <view class="content {{showContent == true? 'show' : 'hide'}}">
+    <view class="box">
+      <text>账号</text><input type="text" placeholder="" data-key="loginName" bindinput="changeInput" auto-focus/><image class="qs" mode="aspectFit" src="../../utils/images/qs.png" /><view class="rgq" bindtap="register">
+        注册
+      </view>
+    </view>
+    <view class="box up">
+      <text>密码</text><input type="password" placeholder="" data-key="passsWord" bindinput="changeInput" auto-focus password /><image class="qs" mode="aspectFit" src="../../utils/images/qs.png" /><view class="rgq" bindtap="fg_pass">
+        忘记密码
+      </view>
+    </view>
+    <view class="box up btn">
+      <button class="wx_login" data-type="1" type="default" size="mini" bindtap="accountLogin" hover-class="none" >微信登录</button>
+      <input class="blank" />
+      <button class="acc_login" data-type="3" type="default" size="mini" hover-class="none" bindtap="accountLogin">账号登录</button>
+    </view>  
+  </view>
+  <view class="version_choice {{hideContent == true? 'hide':'show'}}">
+    <view class="radg">
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}" wx:key="{{index}}" >
+          <radio value="{{item.name}}" checked="{{item.checked}}" />
+          {{item.value}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="popup {{isLoading == true?'hide':'isload'}}"  >
+    <view class="load_box">
+      <view class="loading">
+    </view>
+    <text>加载中。。。</text>
+    </view>
+  </view>
+</view>
+
+
+

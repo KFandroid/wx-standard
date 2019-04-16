@@ -1,0 +1,28 @@
+<!--pages/selectIndex/selectIndex.wxml-->
+
+ <movable-area class="movearea " style="margin:0 20rpx;height: 100vh; width: 100vw; ">
+    <view class="title">
+    当前显示指数
+    </view>
+    <view class="select-Index" wx:for="{{selectIndex}}" wx:key="{{index}}" style="left: {{item.x}}px; top:{{itme.y}}px">
+      <view>{{item.stockName}}</view>
+      <view style="font-size:30rpx;">{{item.stockCode}}</view>
+    </view>
+    <view style="text-align:center;color:gray;font-size:18px;margin-top:100px;">
+      拖动下方指数至上方对应位置即可更换
+    </view>
+    <movable-view
+    class="index {{item.selected == true ? 'selected': ''}} {{showarea == true ? '': 'hide'}}"
+      wx:for="{{indexInfo}}"
+      wx:key="{{index}}"
+      animation="{{falseFlag}}"
+      data-index="{{index}}"
+      bindtouchstart="start"
+      bindtouchend="end"
+      disabled="{{item.selected == true ? true : false}}"
+      bindchange="moveRect"
+      x="{{item.x}}"
+      y="{{item.y}}"
+      direction="all"
+    >{{item.stockName}}</movable-view>
+  </movable-area>

@@ -1,0 +1,49 @@
+/* components/notice/notice.wxss */
+.container{
+    
+}
+.list-cont{
+    padding-right:10rpx;
+    border-bottom: 2rpx solid gray;
+}
+.list-title{
+    height:34px;
+
+}
+.list-title,.listTime{
+    font-size: 26rpx;
+}
+.listIcon{
+    width: 20rpx;
+    height:20rpx;
+    border-radius:50%;
+    background-color:red;
+    float:left;
+    margin:6rpx;
+}
+.listContent{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.listTime{
+    text-align:right;
+    
+}
+
+.pagination-container {
+    display: flex;
+    height: 60rpx;
+    font-size: 24rpx;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1rpx solid gray;
+  }
+  
+  .pageBtn {
+    color: rgb(90, 90, 230);
+  }

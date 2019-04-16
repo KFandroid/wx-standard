@@ -1,0 +1,78 @@
+<!-- components/indexSearch/indexSearch.wxml -->
+<wxs module="m1">
+  var isCurrentSortItem = function(item, currentSortItem, sortCode) {
+    if (item === currentSortItem) {
+      if (sortCode[3] === '0') {
+        return 'order'
+      } else {
+        return 'reverse'
+      }
+
+    } else {
+      return ''
+    }
+  }
+  var isCurrentSortItem2 = function(item, currentSortItem, sortCode) {
+    if (item === currentSortItem) {
+      if (sortCode[3] === '0') {
+        return 'order2'
+      } else {
+        return 'reverse2'
+      }
+
+    } else {
+      return ''
+    }
+  }
+  module.exports.isCurrentSortItem = isCurrentSortItem;
+  module.exports.isCurrentSortItem2 = isCurrentSortItem2;
+</wxs>
+<view class="container">
+  <view class="news" wx:if="{{!showDetail}}">
+    【{{date}}】异动统计
+    <view class="btn3">
+      
+    </view>
+  </view>
+  <view class="main" hidden="{{showDetail}}">
+    <view class="title">
+      <view  class="name view">项目名称</view>
+      <view class="count view">数量</view>
+    </view>
+    <scroll-view class="scrollView" scroll-y="true" style='height: {{scrollHeight}}px;'>
+    <view class="row" wx:for="{{tree}}" wx:key="{{item.no}}">
+      <view class="name {{childOneShow===item.no?'selected':''}} view" data-no="{{item.no}}" data-index="{{index}}" bindtap='showChildOne'>
+        {{item.name}}
+      </view>
+      <view class="count {{childTwoShow===item.no?'selected':''}} view" data-no="{{item.no}}" bindtap='showChildTwo'>
+        {{item.count}}
+      </view>
+      <view class="child child1 view" wx:if="{{childOneShow===item.no}}" wx:for="{{item.children}}" wx:for-item="childItem" wx:key="{{childItem.cno}}">
+        <view class="item name" bindtap="navigateToTable" data-name="{{item.name}}-{{childItem.cname}}" data-cno="{{childItem.cno}}">
+          {{childItem.cname}}
+        </view>
+        <view class="item count {{childThreeShow===childItem.cno?'selected':''}} view" data-cno="{{childItem.cno}}" bindtap='showChildThree'>
+          {{childItem.count}}
+        </view>
+        <view class="child3 view" wx:if="{{childThreeShow===childItem.cno}}">
+          <view class="childLeft">当前剩余数量 {{childItem.count}}</view>
+          <view class="childRight">本期变更增加数量 {{childItem.increase}}</view>
+        </view>
+        <view class="child3 view" wx:if="{{childThreeShow===childItem.cno}}">
+          <view class="childLeft">当前退出数量 {{childItem.quit}}</view>
+          <view class="childRight">本期变更减少数量 {{childItem.decrease}}</view>
+        </view>
+      </view>
+      <view class="child child2 view" wx:if="{{childTwoShow===item.no}}">
+        <view class="childLeft">当前剩余数量 {{item.count}}</view>
+        <view class="childRight">本期变更增加数量 {{item.increase}}</view>
+      </view>
+      <view class="child child2 view" wx:if="{{childTwoShow===item.no}}">
+        <view class="childLeft">当前退出数量 {{item.quit}}</view>
+        <view class="childRight">本期变更减少数量 {{item.decrease}}</view>
+      </view>
+    </view>
+  </scroll-view>
+  </view>
+    
+</view>
