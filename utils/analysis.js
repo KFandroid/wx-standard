@@ -1450,7 +1450,6 @@ import {
       data.data.push(obj)
       if (order >= stockTableView.byteLength) break;
     }
-    
     return data
   }
   const toTable146 = function(dataView) {
