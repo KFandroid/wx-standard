@@ -9,6 +9,9 @@ transform:rotate(160deg);
 transform:rotate(360deg);
 }
 }
+.container{
+  margin-top:20rpx;
+}
 .loading{
 width: 80rpx;
 height: 80rpx;
@@ -23,28 +26,34 @@ image.icon{
   height:280rpx;
 }
 .content{
-  background-color:#6cf;
   display:flex;
   align-items:center;
   padding:100rpx 50rpx;
   flex-wrap: wrap;
   
 }
+.btn,.other_login{
+  display:flex;
+  width:100%;
+  padding: 20rpx 50rpx;
+
+}
 
 .content text{
   display:flex;
   padding-right:10rpx;
-  flex:1
+  font-size:28rpx;
 }
 input{
   display:flex;
   background-color:white;
-  flex:3;
-  max-width:380rpx;
+  width:70%;
+
 }
 .box{
   display:flex;
-  flex-wrap:wrap;
+  border-bottom:2rpx solid #666666;
+  width:100%;
 }
 .up{
   padding-top:50rpx;  
@@ -56,23 +65,39 @@ input{
 }
 .rgq{
   font-size:28rpx;
-  color:blue ;
-  padding-left: 8rpx;
+  color:#666 ;
+  padding-left:30rpx;
 }
 
-button{
-  display:flex;
-  flex:1;
-  
-  color: white !important;
-}
-button.wx_login{
-  background-color:#06c !important;
-}
 button.acc_login{
-  background-color:#0c0 !important;
+  background-color:#ff6600 !important;
+  color:#fff !important;
+}
+.other_func{
+  padding-top:50rpx;
+    flex-direction: row;
+justify-content:flex-end;
+}
+.other_login{
+  margin-top:40rpx;
 }
 
+.line_content{
+  width:25%;
+  position:relative;
+}
+.line{
+    width:100%;
+    border-bottom: 1px solid #999999;
+    position:absolute;
+    top:50%;
+}
+.txt{
+    width:50%;
+    color: #999999;
+    font-size:30rpx;
+    text-align:center;
+}
 
 
 .version_choice{
@@ -108,7 +133,7 @@ label{
   position:absolute;
   top:50%;
   left:50%;
-  transform:translate(-50%,-50%)
+  transform:translate(-50%,-50%);
 }
 .hide {
   display:none;
@@ -125,5 +150,4 @@ label{
   max-width: 50rpx;
   height: 34rpx;
   padding-left:8rpx;
-
 }
