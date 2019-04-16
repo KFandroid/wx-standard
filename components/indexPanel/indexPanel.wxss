@@ -8,7 +8,7 @@
 .index_detail{
     flex:1;
     border:2rpx solid #b8b8b7;
-    background-color:#f0f1f1;
+    
     /* display:flex; */
     padding:6rpx;
 
@@ -34,6 +34,7 @@
 .index_name {
     flex-wrap: nowrap;
     float:left;
+    color:#666;
 }
 .index_rf{
     font-size:25rpx;
@@ -58,6 +59,7 @@
     width: 100%;
 }
 .triangle_border_right{
+     background-color:#bdbdbd;
     width:0;
     height:0;
     border-width:20rpx 0 20rpx 20rpx;
@@ -67,4 +69,11 @@
     position:absolute;
     top:50%;
     transform:translateY(-50%)
+}
+
+.green{
+    color:#00cc00;
+}
+.red{
+    color:#ff0000;
 }

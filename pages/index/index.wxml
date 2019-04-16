@@ -1,13 +1,12 @@
 <!--pages/index/index.wxml-->
 <view class="index">
 <!-- <view style="height: 100px;width: 100px; border:2px solid red;" bindtap="changePageSrc"></view> -->
-  <view class="search-btn">
-  
-
+  <view class="search-btn clear">
     <navigator url="../../pages/search/search" class="btn sea_btn" bindtap="viewTap" >
       <image src="../../utils/images/search.png" style='max-width: 50rpx; height: 34rpx;' mode="aspectFit"></image>
       请输入股票代码/名称/简拼
     </navigator>
+    <image class="personal" src="../../utils/images/me.png" mode="aspectFit"/>
   </view>
     <component-indexPanel></component-indexPanel>
   <component-indexSearch t101="{{t101}}" 

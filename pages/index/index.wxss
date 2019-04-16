@@ -1,17 +1,22 @@
 /* pages/index/index.wxss */
+.clear{
+    clear:both;
+}
 .search-btn{
-    padding:20rpx 40rpx;
-    height:42px;
+    height:34px;
     box-sizing: border-box;
+    padding:20rpx 0 14rpx 20rpx;
 }
 .sea_btn{
-    
+    width:70%;
     box-sizing:border-box;
     border:2rpx solid gray;
-    border-radius:32rpx;
+    border-radius:18rpx;
     font-size: 13px;
-    text-align: center;
-    background-color: #f0f1f1;
+    /*background-color: #f0f1f1;*/
+    float:left;
+    color:#949494;
+
 }
 
 .index {
@@ -19,4 +24,11 @@
 }
 .hide {
     display: none;
+}
+.personal{
+    height:22px;
+    display:flex;
+    flex:1;
+    max-width:50rpx;
+    float:right;
 }

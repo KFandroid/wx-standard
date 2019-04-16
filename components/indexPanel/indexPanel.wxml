@@ -16,8 +16,8 @@
             <view class="index1 index_name">
                 {{item.stockName}} 
             </view>
-            <view class="index2">
-                <view class="index_data">
+            <view class="index2 {{item.cjj>item.zsj?'red':'green'}}">
+                <view class="index_data ">
                         {{item.cjj}}
                 </view>
                 <view class="index_rf">
