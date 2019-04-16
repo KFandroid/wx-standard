@@ -1,19 +1,13 @@
 <!-- components/optionalStock/optionalStock.wxml -->
 <view class="content">
-  <view class="form">
-    <div class="title">自选股</div>
-    <picker class="picker" bindchange="bindPickerChange" value="{{index}}" range="{{selector}}" range-key="name">
-      <view class="picker_content">{{selector[index].name}}</view>
-    </picker>
-    <view class="btn" bindtap="toEditCustom">编辑板块</view>
-  </view>
+  
   <view class="flex-box flex-column">
     <view class="flex-row thead">
       <!-- <text class="flex-cell flex-row col-16-1">序</text> -->
-      <view class="flex-cell col-16-6 flex-start">
+      <view class="flex-cell col-16-5 flex-start">
         <text class="text">股票</text>
       </view>
-      <view class="flex-cell flex-row col-16-4 flex-2-row">
+      <view class="flex-cell flex-row col-16-3 flex-2-row">
         <text class="text">最新</text>
         
       </view>
@@ -22,6 +16,8 @@
       </view>
       <view class="flex-cell flex-row col-16-3 flex-2-row">
         <text class="text">成交量</text>
+      </view>
+      <view class="flex-cell flex-row col-16-1 flex-2-row">
       </view>
     </view>
   </view>
@@ -33,21 +29,35 @@
       <block wx:for="{{allData}}" wx:key="{{item.name}}" wx:for-item="item">
         <view class="flex-row" data-stock="{{item}}" bindtap="navigateToStock" data-item="{{item}}" bindlongpress="removeThis">
           <!-- <text class="flex-cell flex-row col-16-1">{{index + 1}}</text> -->
-          <view class="flex-cell  col-16-6 flex-between">
+          <view class="flex-cell  col-16-5 flex-between">
             <text>{{item.stockName}}</text>
             <text>{{item.stockCode}}</text>
           </view>
-          <view class="flex-cell flex-row col-16-4 flex-2-row">
-            <text>{{item.cjj}}</text>
+          <view class="flex-cell flex-row col-16-3 flex-2-row">
+            <text class="{{item.riseFlag == true ? 'red-font' : 'green-font'}}">{{item.cjj}}</text>
             
           </view>
           <view class="flex-cell flex-row col-16-4 flex-2-row">
-            <text>{{item.zf}}%</text>
+            <text class="rise {{item.riseFlag == true ? 'red' : 'green'}}">{{item.zf}}%</text>
           </view>
           <view class="flex-cell flex-row col-16-3 flex-2-row">
             <text>{{item.cjl}}</text>
           </view>
+          <view class="flex-cell flex-row col-16-1 flex-2-row">
+            <image src="../../utils/images/delete.png" style='max-width: 36rpx; height: 28rpx;' mode="aspectFit"></image>
+      </view>
         </view>
       </block>
   </scroll-view>
+  <view class="bottom-bar">
+    <view class="select-custom col-16-14">
+      <view class="left-btn">＜</view>
+        <view class="plate" wx:for="{{plate}}" style="width: {{plateWidth}}px" data-index="{{index}}" data-index="{{index}}">{{item.name}}</view>
+      
+      <view class="right-btn">＞</view>
+    </view>
+    <view class="custom-setting col-16-2">
+       <image src="../../utils/images/setting.png" style='max-width: 76rpx; height: 50rpx;' mode="aspectFit"></image>
+    </view>
+  </view>
 </view>

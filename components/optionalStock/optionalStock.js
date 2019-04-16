@@ -15,8 +15,10 @@ Component({
       type: Object,
       value: null,
       observer(data) {
+        
         for (let i = 0; i < this.data.codeDetail.length; i++) {
           for (let j = 0; j < data.data.length; j++) {
+            
             if (this.data.codeDetail[i].code == data.data[j].code) {
               data.data[j].stockName = this.data.codeDetail[i].stockName
               data.data[j].stockCode = this.data.codeDetail[i].stockCode
@@ -34,6 +36,14 @@ Component({
             data.data.push(this.data.allData[i])
           }
         }
+        for(let i = 0; i < data.data.length; i++) {
+          if(parseFloat(data.data[i].zf) > 0 ) {
+            debugger
+            data.data[i].riseFlag = true
+          } else {
+            data.data[i].riseFlag = false
+          }
+        }
         this.setData({
           allData: data.data
         })
@@ -49,6 +59,7 @@ Component({
     codeDetail: [],
     page: 1,
     totalPage: 1,
+    plateWidth:0,
     codeStr: '',
   },
   pageLifetimes: {
@@ -56,6 +67,15 @@ Component({
       this.data.hasGetData = false
       this.getAndSetData()
       // 页面被展示
+      const query = wx.createSelectorQuery().in(this)
+      query.select('.select-custom ').boundingClientRect()
+      query.exec( (res) =>{
+        debugger
+        let plateWidth = (res[0].width - 40) / 3
+        this.setData({
+          plateWidth
+        })
+      })
     },
     hide() {
       storage.deleteFile(107)
@@ -72,6 +92,11 @@ Component({
     }
   },
   methods: {
+    setPlate(selector) {
+      this.setData({
+        plate: selector.slice(0, 3)
+      })
+    },
     getAndSetData() {
       
       if(this.data.hasGetData) {
@@ -88,8 +113,7 @@ Component({
         selector: wx.getStorageSync('customStockClass')
       })
       if(app.globalData.selectCustomStockTableIndex >= 0) {
-        this.data.selector
-        
+        this.setPlate(this.data.selector)
         if(this.data.selector[this.data.index] === undefined) {
           app.globalData.selectCustomStockTableIndex = 0
         }

@@ -19,6 +19,7 @@ Page({
     t102: null,
     t103: null,
     t107: null,
+    bottomIndex: '1',
     pagesrc: '',
     indexSearchHeight: 300
   },
@@ -68,6 +69,13 @@ Page({
    */
   onUnload: function() {
 
+  },
+  selectBottomIndex: function(e) {
+    console.log(e)
+    this.setData({
+      bottomIndex: e.currentTarget.dataset.index
+    })
+    debugger
   },
   changePageSrc() {
     

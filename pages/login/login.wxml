@@ -17,9 +17,9 @@
       <button class="wx_login" data-type="1" type="default" size="mini" bindtap="accountLogin" hover-class="none" >微信登录</button>
       <input class="blank" />
       <button class="acc_login" data-type="3" type="default" size="mini" hover-class="none" bindtap="accountLogin">账号登录</button>
-    </view>  
+    </view>
   </view>
-  <view class="version_choice {{hideContent == true? 'hide':'show'}}">
+  <!-- <view class="version_choice {{hideContent == true? 'hide':'show'}}">
     <view class="radg">
       <radio-group class="radio-group" bindchange="radioChange">
         <label class="radio" wx:for="{{items}}" wx:key="{{index}}" >
@@ -28,7 +28,7 @@
         </label>
       </radio-group>
     </view>
-  </view>
+  </view> -->
   <view class="popup {{isLoading == true?'hide':'isload'}}"  >
     <view class="load_box">
       <view class="loading">

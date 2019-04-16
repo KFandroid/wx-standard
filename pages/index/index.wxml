@@ -15,13 +15,17 @@
   t102="{{t102}}" 
   pickerDate='{{dateBottom}}'
    bind:getK103="getK103" 
-   t103="{{t103}}" 
+   t103="{{t103}}"
    scrollHeight="{{indexSearchHeight}}"
    bind:stopGetK103="stopGetK103" bind:closeGetChild="closeGetChild"
     bind:dateChange="dateChange" 
    bind:getChild="getT102"
    ></component-indexSearch>
   <view class="custom-stock">
+  <view class="form">
+    <view bind:tap="selectBottomIndex" class="title  {{bottomIndex == '1' ? 'selected': ''}}" data-index="1">自选</view>
+    <view bind:tap="selectBottomIndex" class="title {{bottomIndex == '2' ? 'selected': ''}}" data-index="2">监控</view>
+  </view>
     <component-optionalStock scrollHeight="160"  bind:getK107="getK107" t107="{{t107}}"></component-optionalStock>
   </view>
   <!-- <web-view class="{{pagesrc == '' ? 'hide': ''}}" src="{{pagesrc}}"></web-view> -->

@@ -1,6 +1,63 @@
 /* components/optionalStock/optionalStock.wxss */
 @import "../../utils/wxss/column.wxss";
+.red{
+  background-color: #FF2929;
+}
+.green{
+  background-color: #29A929;
+}
+.red-font {
+  color: #FF2929;
+}
+.green-font {
+  color: #29A929;
+}
+.rise {
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+  height: 36rpx;
+  color:white;
+  border-radius: 6rpx;
+}
+.bottom-bar {
+  border: 2rpx solid gray;
+  box-sizing: border-box;
+  height: 52rpx;
+  
+}
+.select-custom {
+  overflow:hidden;
+  display: inline-block;
+}
+.custom-setting {
+  display: inline-block;
+  /* float: right; */
+}
+.left-btn, .right-btn {
+  font-size: 40rpx;
+  /* height: 50rpx;
+  line-height: 50rpx; */
+  color:white;
+  float: left;
+  line-height: 46rpx;
+  box-sizing: border-box;
+  height:46rpx;
+  background: #999;
+}
+.right-btn {
+  float:right;
+}
 
+.plate {
+  line-height: 50rpx;
+  float: left;
+  box-sizing: border-box;
+  height:50rpx;
+  font-size: 26rpx;
+  text-align: center;
+  border-right: 2rpx solid gray;
+}
 .title {
   display: inline-block;
   background-color: #f0f1f1;
@@ -210,3 +267,8 @@
 .input_name {
   border: 1rpx solid #eee;
 }
+
+.bottom-bar {
+  height: 50rpx;
+}
+
