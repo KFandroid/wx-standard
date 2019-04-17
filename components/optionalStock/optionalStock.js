@@ -207,6 +207,7 @@ Component({
         totalPage: 1
       })
       let t105 = app.globalData.a105.data
+      
       let data = wx.getStorageSync('customStockTable')[wx.getStorageSync('customStockClass')[index].name]
       let allDataTemp = []
       for (let i = 0; i < t105.length; i++) {
@@ -220,7 +221,7 @@ Component({
         }
       }
       this.setData({
-        selector: wx.getStorageSync('customStockClass'),
+        // selector: wx.getStorageSync('customStockClass'),
         allData: allDataTemp
       })
       this.getK107()

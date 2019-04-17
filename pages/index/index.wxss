@@ -26,6 +26,7 @@
 
 .index {
     /* margin:0 20rpx; */
+    overflow: hidden;
 }
 .hide {
     display: none;
