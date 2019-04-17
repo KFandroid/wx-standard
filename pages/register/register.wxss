@@ -25,12 +25,12 @@ form{
     padding:40rpx 30rpx 0;
 }
 button.zhuce{
-    background-color:#6cf;
+    background-color:#ff6600 ;
     line-height:1.5;
 }
 
 .send_code{
-    color:#6cf;
+    color:#ff6600 ;
     font-size:28rpx;
     position:absolute;
     right:0;

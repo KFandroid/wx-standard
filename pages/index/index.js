@@ -75,7 +75,6 @@ Page({
     this.setData({
       bottomIndex: e.currentTarget.dataset.index
     })
-    debugger
   },
   changePageSrc() {
     

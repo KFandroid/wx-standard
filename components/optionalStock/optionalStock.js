@@ -70,7 +70,6 @@ Component({
       const query = wx.createSelectorQuery().in(this)
       query.select('.select-custom ').boundingClientRect()
       query.exec( (res) =>{
-        debugger
         let plateWidth = (res[0].width - 40) / 3
         this.setData({
           plateWidth

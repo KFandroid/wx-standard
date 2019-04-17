@@ -3,9 +3,8 @@
     clear:both;
 }
 .search-btn{
-    height:34px;
-    box-sizing: border-box;
-    padding:20rpx 0 14rpx 20rpx;
+    height:40rpx;
+    padding:20rpx 0 20rpx 20rpx;
 }
 .sea_btn{
     width:70%;
@@ -16,7 +15,13 @@
     /*background-color: #f0f1f1;*/
     float:left;
     color:#949494;
-
+    /*height:40rpx;*/
+}
+.sea_btn::after{
+  display: block;
+  height: 0;
+  clear: both;
+  content: '' ;
 }
 
 .index {
@@ -68,7 +73,7 @@
     border-left: 1rpx solid #7c7c7c;
   }
 .personal{
-    height:22px;
+    height:40rpx;
     display:flex;
     flex:1;
     max-width:50rpx;

@@ -33,8 +33,9 @@
 }
 .index_name {
     flex-wrap: nowrap;
-    float:left;
     color:#666;
+    text-indent:-8rpx;
+
 }
 .index_rf{
     font-size:25rpx;
