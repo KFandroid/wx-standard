@@ -34,11 +34,11 @@
             <text>{{item.stockCode}}</text>
           </view>
           <view class="flex-cell flex-row col-16-3 flex-2-row">
-            <text class="{{item.riseFlag == true ? 'red-font' : 'green-font'}}">{{item.cjj}}</text>
+            <text class="{{item.riseFlag == true ? 'red-font' : 'green-font'}} {{item.riseFlag == 0 ? 'gray-font' : ''}}">{{item.cjj}}</text>
             
           </view>
           <view class="flex-cell flex-row col-16-4 flex-2-row">
-            <text class="rise {{item.riseFlag == true ? 'red' : 'green'}}">{{item.zf}}%</text>
+            <text class="rise {{item.riseFlag == true ? 'red' : 'green'}} {{item.riseFlag == 0 ? 'gray' : ''}}">{{item.zf}}%</text>
           </view>
           <view class="flex-cell flex-row col-16-3 flex-2-row">
             <text>{{item.cjl}}</text>

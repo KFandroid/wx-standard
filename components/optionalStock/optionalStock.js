@@ -38,10 +38,12 @@ Component({
         }
         for(let i = 0; i < data.data.length; i++) {
           if(parseFloat(data.data[i].zf) > 0 ) {
-            debugger
+            
             data.data[i].riseFlag = true
-          } else {
+          } else if(parseFloat(data.data[i].zf) < 0 ){
             data.data[i].riseFlag = false
+          } else {
+            data.data[i].riseFlag = 0
           }
         }
         this.setData({

@@ -54,7 +54,7 @@ Page({
     this.setData({
       indexSearchHeight,
     })
-    storage.addFile(Object.assign({ctx: this}, fileList.file101))
+    // storage.addFile(Object.assign({ctx: this}, fileList.file101))
   },
 
   /**
