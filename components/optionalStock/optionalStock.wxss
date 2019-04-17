@@ -6,11 +6,17 @@
 .green{
   background-color: #29A929;
 }
+.gray {
+  background-color: #BBBBBB;
+}
 .red-font {
   color: #FF2929;
 }
 .green-font {
   color: #29A929;
+}
+.gray-font {
+  color: #BBBBBB;
 }
 .rise {
   display: inline-block;

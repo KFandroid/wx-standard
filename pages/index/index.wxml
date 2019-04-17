@@ -9,7 +9,7 @@
     <image class="personal" src="../../utils/images/me.png" mode="aspectFit"/>
   </view>
     <component-indexPanel></component-indexPanel>
-  <component-indexSearch t101="{{t101}}" 
+  <!-- <component-indexSearch t101="{{t101}}" 
   t106="{{t106}}" 
   t102="{{t102}}" 
   pickerDate='{{dateBottom}}'
@@ -19,7 +19,8 @@
    bind:stopGetK103="stopGetK103" bind:closeGetChild="closeGetChild"
     bind:dateChange="dateChange" 
    bind:getChild="getT102"
-   ></component-indexSearch>
+   ></component-indexSearch> -->
+   <view style="height:{{indexSearchHeight}}px"></view>
   <view class="custom-stock">
   <view class="form">
     <view bind:tap="selectBottomIndex" class="title  {{bottomIndex == '1' ? 'selected': ''}}" data-index="1">自选</view>
