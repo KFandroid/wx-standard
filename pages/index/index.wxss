@@ -25,6 +25,48 @@
 .hide {
     display: none;
 }
+
+.title {
+    display: inline-block;
+    /* background-color: #f0f1f1; */
+    padding: 0 10px;
+    color:#41ACDB;
+    border-right: 1rpx solid #7c7c7c;
+  }
+  .selected {
+      background-color: #F2F2F2;
+      color: #FF6633;
+  }
+  .menu-btn {
+    float: right;
+  }
+  
+  .form {
+    height: 50rpx;
+    font-size: 24rpx;
+    line-height: 50rpx;
+    border-bottom: 2rpx solid gray;
+    border-top: 2rpx solid gray;
+  }
+  
+  .form .label {
+    font-size: 24rpx;
+    /* font-weight: bolder; */
+  }
+  
+  .form .btn {
+    float: right;
+    height: 30prx;
+    line-height: 30prx;
+    font-size: 24rpx;
+    color: #444;
+    margin: 0;
+    top: 4rpx;
+    background: #f1f1f1;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    border-left: 1rpx solid #7c7c7c;
+  }
 .personal{
     height:22px;
     display:flex;

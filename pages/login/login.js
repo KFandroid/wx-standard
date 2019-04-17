@@ -85,7 +85,9 @@ Page({
   },
   //点击登录
   login:function(data){
-    
+    this.setData({
+      isLoading: true
+    })
     wx.request({
       url: `http://${shortConnectUrl}/userLogin/userLoginMode`,
       method:'POST',
@@ -99,9 +101,22 @@ Page({
         //reStatus(code); 
         if(code === '01') {
           this.setData({
-            showContent: false,
-            hideContent: false
+            isLoading: false
           })
+          if(this.data.firstInit) {
+            this.data.firstInit = false
+            createConnect()
+            connect((data) => {
+              storage.observeFileChange(data.type, data)
+            })
+            wx.onSocketOpen(() => {
+              storage.addFile(fileList.file109)
+             storage.addFile(fileList.file106)
+              storage.addFile(fileList.file105)
+             })
+          } else {
+            EventBus.emit('loginsuccess')
+          }
         } else if(code === '10004') {
           wx.showToast({
             title: '请输入正确的密码！',

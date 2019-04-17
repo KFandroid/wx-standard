@@ -7,7 +7,7 @@
       <text>账号</text><input type="text" placeholder="" data-key="loginName" bindinput="changeInput" auto-focus/>
     </view>
     <view class="box up">
-      <text>密码</text><input type="password" placeholder="" data-key="passsWord" bindinput="changeInput" auto-focus password />
+      <text>密码</text><input type="password" placeholder="" data-key="passsWord" bindinput="changeInput"  password />
     </view>
     <view class="btn other_func">
       <view class="rgq" bindtap="register">注册</view>
@@ -31,7 +31,7 @@
     <image mode="aspectFit" style="max-height:88rpx;" data-type="1" bindtap="accountLogin" src="../../utils/images/wechat.png"/>
      
   </view>
-  <view class="version_choice {{hideContent == true? 'hide':'show'}}">
+  <!-- <view class="version_choice {{hideContent == true? 'hide':'show'}}">
     <view class="radg">
       <radio-group class="radio-group" bindchange="radioChange">
         <label class="radio" wx:for="{{items}}" wx:key="{{index}}" >
@@ -40,7 +40,7 @@
         </label>
       </radio-group>
     </view>
-  </view>
+  </view> -->
   <view class="popup {{isLoading == true?'hide':'isload'}}"  >
     <view class="load_box">
       <view class="loading">
