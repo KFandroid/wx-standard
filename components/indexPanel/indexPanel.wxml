@@ -1,5 +1,5 @@
 <!--compontent/indexPanel/indexPanel.wxml-->
-<view class="cont">
+
     <view class="indexpanel" >
         <view class="index_detail"wx:for="{{indexList}}" bindtap="navigateToIndex" wx:key="{{index}}" data-stock="{{item}}">
             <!--<view class="index index_name">
@@ -31,4 +31,3 @@
                 </view>
         </navigator>
     </view>
-</view>
