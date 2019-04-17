@@ -60,6 +60,7 @@ Component({
     selector: [],
     codeDetail: [],
     page: 1,
+    selectorStart: 0,
     totalPage: 1,
     plateWidth:0,
     codeStr: '',
@@ -69,15 +70,7 @@ Component({
       this.data.hasGetData = false
       this.getAndSetData()
       // 页面被展示
-      const query = wx.createSelectorQuery().in(this)
-      query.select('.select-custom ').boundingClientRect()
-      query.exec( (res) =>{
-        debugger
-        let plateWidth = (res[0].width - 40) / 3
-        this.setData({
-          plateWidth
-        })
-      })
+      // this.setView()
     },
     hide() {
       storage.deleteFile(107)
@@ -87,6 +80,7 @@ Component({
   lifetimes: {
     attached() {
      this.getAndSetData()
+    //  this.setView()
     },
     detached() {
       storage.deleteFile(107)
@@ -94,9 +88,45 @@ Component({
     }
   },
   methods: {
-    setPlate(selector) {
+    removeThis(detail) {
       this.setData({
-        plate: selector.slice(0, 3)
+        selectedCode: detail.currentTarget.dataset.item.stockCode
+      })
+      wx.showModal({
+        title: '提示',
+        content: '是否确认删除该自选股',
+        success: res => {
+          if (res.confirm) {
+            let temp = wx.getStorageSync('customStockTable')
+            temp[this.data.selector[this.data.index].name] = wx.getStorageSync('customStockTable')[this.data.selector[this.data.index].name].filter(item => {
+              return item !== this.data.selectedCode
+            })
+            wx.setStorageSync('customStockTable', temp)
+            this.data.hasGetData = false
+            this.getAndSetData()
+          }
+        }
+      })
+    },
+    addPlate() {
+      
+      if(this.data.selectorStart < this.data.selector.length - 1) {
+        this.data.selectorStart += 1
+        this.setPlate()
+      }
+      
+    },
+    minusPlate() {
+      
+      if(this.data.selectorStart > 0) {
+        this.data.selectorStart -= 1
+        this.setPlate()
+      }
+    },
+    setPlate() {
+      let selector = this.data.selector
+      this.setData({
+        plate: selector.slice(this.data.selectorStart, this.data.selectorStart + 3)
       })
     },
     getAndSetData() {
@@ -115,7 +145,10 @@ Component({
         selector: wx.getStorageSync('customStockClass')
       })
       if(app.globalData.selectCustomStockTableIndex >= 0) {
-        this.setPlate(this.data.selector)
+        this.data.selector.forEach((element, index) => {
+          element.index = index
+        });
+        this.setPlate()
         if(this.data.selector[this.data.index] === undefined) {
           app.globalData.selectCustomStockTableIndex = 0
         }
@@ -164,16 +197,17 @@ Component({
     
     },
     bindPickerChange: function (e) {
-      app.globalData.selectCustomStockTableIndex = e.detail.value
+      let index = e.currentTarget.dataset.index
+      app.globalData.selectCustomStockTableIndex = index
       this.setData({
-        index: e.detail.value,
+        index,
         allData: [],
         data: [],
         page: 1,
         totalPage: 1
       })
       let t105 = app.globalData.a105.data
-      let data = wx.getStorageSync('customStockTable')[wx.getStorageSync('customStockClass')[e.detail.value].name]
+      let data = wx.getStorageSync('customStockTable')[wx.getStorageSync('customStockClass')[index].name]
       let allDataTemp = []
       for (let i = 0; i < t105.length; i++) {
         for (let j = 0; j < data.length; j++) {

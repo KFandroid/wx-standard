@@ -14,7 +14,8 @@
   let connectCount = 0
   let socketTask
   let socketConnectFail
-  export const shortConnectUrl = '101.132.168.103:7877'
+  export const shortConnectUrl = '101.132.168.103:7877' // 线上
+// export const shortConnectUrl = '192.168.0.104:8081' // 小伍
   export const createConnect = () => {
     
     if (!socketTask) {

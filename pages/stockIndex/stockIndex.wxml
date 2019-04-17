@@ -260,7 +260,7 @@
         kLinesDataCurrent="{{kLinesDataCurrent}}" 
         rfArr="{{rfArr}}"
         ></indicator>
-        <component-optionalStock wx:if="{{subSelect==16}}" scrollHeight="{{underViewHeight - 70}}" bind:getK107="getK107" bind:stopGetK107="stopGetK107" t107="{{t107}}"></component-optionalStock>
+        <component-optionalStock wx:if="{{subSelect==16}}" scrollHeight="{{underViewHeight-45}}" bind:getK107="getK107" bind:stopGetK107="stopGetK107" t107="{{t107}}"></component-optionalStock>
       </view>
     </view>
     <view class="right col-24-8" wx:if="{{showDeal}}"></view>

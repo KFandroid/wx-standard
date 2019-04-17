@@ -1,7 +1,5 @@
 <!-- components/optionalStock/optionalStock.wxml -->
-<view class="content">
-  
-  <view class="flex-box flex-column">
+<view class="flex-box flex-column">
     <view class="flex-row thead">
       <!-- <text class="flex-cell flex-row col-16-1">序</text> -->
       <view class="flex-cell col-16-5 flex-start">
@@ -21,43 +19,48 @@
       </view>
     </view>
   </view>
-  <view style='font-size:24rpx;text-align:center;' hidden='{{allData.length !== 0}}'>
+<view class="content">
+  
+  
+  <view style='font-size:24rpx;text-align:center;height: {{scrollHeight}}px;' hidden='{{allData.length !== 0}}'>
     暂无自选股内容
   </view>
   <scroll-view class="scrollView" hidden='{{allData.length === 0}}' scroll-y style='height: {{scrollHeight}}px;'>
     
       <block wx:for="{{allData}}" wx:key="{{item.name}}" wx:for-item="item">
-        <view class="flex-row" data-stock="{{item}}" bindtap="navigateToStock" data-item="{{item}}" bindlongpress="removeThis">
+        <view class="flex-row" data-stock="{{item}}"  data-item="{{item}}">
           <!-- <text class="flex-cell flex-row col-16-1">{{index + 1}}</text> -->
-          <view class="flex-cell  col-16-5 flex-between">
+          <view bindtap="navigateToStock" data-stock="{{item}}" class="flex-cell  col-16-5 flex-between">
             <text>{{item.stockName}}</text>
             <text>{{item.stockCode}}</text>
           </view>
-          <view class="flex-cell flex-row col-16-3 flex-2-row">
-            <text class="{{item.riseFlag == true ? 'red-font' : 'green-font'}} {{item.riseFlag == 0 ? 'gray-font' : ''}}">{{item.cjj}}</text>
+          <view bindtap="navigateToStock" data-stock="{{item}}" class="flex-cell flex-row col-16-3 flex-2-row">
+            <text class="{{item.riseFlag == true ? 'red-font' : 'green-font'}} {{item.riseFlag === 0 ? 'gray-font' : ''}}">{{item.cjj}}</text>
             
           </view>
-          <view class="flex-cell flex-row col-16-4 flex-2-row">
-            <text class="rise {{item.riseFlag == true ? 'red' : 'green'}} {{item.riseFlag == 0 ? 'gray' : ''}}">{{item.zf}}%</text>
+          <view bindtap="navigateToStock" data-stock="{{item}}" class="flex-cell flex-row col-16-4 flex-2-row">
+            <text class="rise {{item.riseFlag == true ? 'red' : 'green'}} {{item.riseFlag === 0 ? 'gray' : ''}}">{{item.zf}}%</text>
           </view>
-          <view class="flex-cell flex-row col-16-3 flex-2-row">
+          <view bindtap="navigateToStock" data-stock="{{item}}" class="flex-cell flex-row col-16-3 flex-2-row">
             <text>{{item.cjl}}</text>
           </view>
-          <view class="flex-cell flex-row col-16-1 flex-2-row">
+          <view data-item="{{item}}" class="flex-cell flex-row col-16-1 flex-2-row" bindtap="removeThis">
             <image src="../../utils/images/delete.png" style='max-width: 36rpx; height: 28rpx;' mode="aspectFit"></image>
       </view>
         </view>
       </block>
   </scroll-view>
-  <view class="bottom-bar">
+  
+</view>
+<view class="bottom-bar">
     <view class="select-custom col-16-14">
-      <view class="left-btn">＜</view>
-        <view class="plate" wx:for="{{plate}}" style="width: {{plateWidth}}px" data-index="{{index}}" data-index="{{index}}">{{item.name}}</view>
-      
-      <view class="right-btn">＞</view>
+      <view class="left-btn col-16-1" bind:tap="minusPlate">＜</view>
+      <view class="plate-container col-16-14">
+        <view class="plate {{index == item.index ? 'selected' : ''}}" wx:for-index="idx" wx:for="{{plate}}" bind:tap="bindPickerChange" data-index="{{item.index}}" >{{item.name}}</view>
+      </view>
+      <view class="right-btn col-16-1" bind:tap="addPlate">＞</view>
     </view>
-    <view class="custom-setting col-16-2">
+    <view class="custom-setting col-16-2" bindtap="toEditCustom">
        <image src="../../utils/images/setting.png" style='max-width: 76rpx; height: 50rpx;' mode="aspectFit"></image>
     </view>
   </view>
-</view>

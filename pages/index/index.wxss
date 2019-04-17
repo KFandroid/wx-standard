@@ -20,7 +20,7 @@
 }
 
 .index {
-    margin:0 20rpx;
+    /* margin:0 20rpx; */
 }
 .hide {
     display: none;

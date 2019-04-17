@@ -11,7 +11,7 @@
     <component-indexPanel></component-indexPanel>
   <!-- <component-indexSearch t101="{{t101}}" 
   t106="{{t106}}" 
-  t102="{{t102}}" 
+  t102="{{t102}}"
   pickerDate='{{dateBottom}}'
    bind:getK103="getK103" 
    t103="{{t103}}"
@@ -26,7 +26,7 @@
     <view bind:tap="selectBottomIndex" class="title  {{bottomIndex == '1' ? 'selected': ''}}" data-index="1">自选</view>
     <view bind:tap="selectBottomIndex" class="title {{bottomIndex == '2' ? 'selected': ''}}" data-index="2">监控</view>
   </view>
-    <component-optionalStock scrollHeight="160"  bind:getK107="getK107" t107="{{t107}}"></component-optionalStock>
+    <component-optionalStock scrollHeight="162"  bind:getK107="getK107" t107="{{t107}}" ></component-optionalStock>
   </view>
   <!-- <web-view class="{{pagesrc == '' ? 'hide': ''}}" src="{{pagesrc}}"></web-view> -->
 </view>
