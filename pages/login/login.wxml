@@ -4,20 +4,32 @@
 
   <view class="content {{showContent == true? 'show' : 'hide'}}">
     <view class="box">
-      <text>账号</text><input type="text" placeholder="" data-key="loginName" bindinput="changeInput" auto-focus/><image class="qs" mode="aspectFit" src="../../utils/images/qs.png" /><view class="rgq" bindtap="register">
-        注册
-      </view>
+      <text>账号</text><input type="text" placeholder="" data-key="loginName" bindinput="changeInput" auto-focus/>
     </view>
     <view class="box up">
-      <text>密码</text><input type="password" placeholder="" data-key="passsWord" bindinput="changeInput" auto-focus password /><image class="qs" mode="aspectFit" src="../../utils/images/qs.png" /><view class="rgq" bindtap="fg_pass">
-        忘记密码
+      <text>密码</text><input type="password" placeholder="" data-key="passsWord" bindinput="changeInput"  password />
+    </view>
+    <view class="btn other_func">
+      <view class="rgq" bindtap="register">注册</view>
+      <view class="rgq" bindtap="fg_pass">忘记密码</view>
+    </view>
+    <button class="btn acc_login" data-type="3" type="default" size="mini" hover-class="none" bindtap="accountLogin">登录</button>
+    
+   
+    <view class="other_login">
+      <view class="line_content">
+        <view class="line"></view>
+      </view>
+      <view class="txt">
+        其他方式登录
+      </view>
+      <view class="line_content">
+        <view class="line"></view>
       </view>
     </view>
-    <view class="box up btn">
-      <button class="wx_login" data-type="1" type="default" size="mini" bindtap="accountLogin" hover-class="none" >微信登录</button>
-      <input class="blank" />
-      <button class="acc_login" data-type="3" type="default" size="mini" hover-class="none" bindtap="accountLogin">账号登录</button>
-    </view>
+      
+    <image mode="aspectFit" style="max-height:88rpx;" data-type="1" bindtap="accountLogin" src="../../utils/images/wechat.png"/>
+     
   </view>
   <!-- <view class="version_choice {{hideContent == true? 'hide':'show'}}">
     <view class="radg">
@@ -37,6 +49,6 @@
     </view>
   </view>
 </view>
-
+<!-- -->
 
 

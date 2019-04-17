@@ -7,7 +7,7 @@
   // let url = 'ws://47.101.191.138:8082/l1WebSocket' // aliyun地址
   // let url = 'ws://192.168.137.50:8082/l1WebSocket' // 张孙浩
   // let url = 'ws://192.168.0.104:8082/ws'  //小伍
-   let url = 'ws://101.132.168.103:8888/ws' //线上
+    let url = 'ws://101.132.168.103:8888/ws' //线上
   // let url = 'ws://192.168.0.100:8082/ws' // 王
   let reconnectHandle = null
   const MAX_CONNECTION_NUM = 10 // 最大连接数10
