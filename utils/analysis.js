@@ -209,21 +209,23 @@ import {
     data.pcp = dataView.getFloat32(32).toFixed(2)
     data.hp = dataView.getFloat32(32 + 4).toFixed(2)
     data.lp = dataView.getFloat32(32 + 8).toFixed(2)
-    let itemLength = Math.round((dataView.byteLength - 44) / dataByteLength)
+    data.jhhp = dataView.getFloat32(32 + 12).toFixed(2)
+    data.jhlp = dataView.getFloat32(32 + 16).toFixed(2)
+    const order = 52
+    let itemLength = Math.round((dataView.byteLength - order) / dataByteLength)
     for (let i = 0; i < itemLength; i++) {
       let temp = {}
       let strArr = []
       for (let j = 0; j < 4; j++) {
-        strArr.push(dataView.getUint8(i * dataByteLength + j + 44))
+        strArr.push(dataView.getUint8(i * dataByteLength + j + order))
       }
   
       temp.date = utf8ByteArrayToString(strArr).replace(/\u0000/g, "")
-      temp.dealPrice = dataView.getFloat32(i * dataByteLength + 44 + 4).toFixed(2)
-      temp.dn = Math.round(dataView.getFloat32(i * dataByteLength + 44 + 8))
-      temp.da = Math.round(dataView.getFloat32(i * dataByteLength + 44 + 12))
+      temp.dealPrice = dataView.getFloat32(i * dataByteLength + order + 4).toFixed(2)
+      temp.dn = Math.round(dataView.getFloat32(i * dataByteLength + order + 8))
+      temp.da = Math.round(dataView.getFloat32(i * dataByteLength + order + 12))
       data.data.push(temp)
     }
-    
     return data
   }
   const toTable113 = function(dataView) {

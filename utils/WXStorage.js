@@ -15,6 +15,14 @@
       }
       // if(file.hasOwnProperty('intervalTime')) {
         this.intervalTime = file.intervalTime || 0 // FIXME
+      if(file.filter) {
+        this.filter = () => {
+          return file.filter.bind(file.ctx)()
+        }
+      } else {
+        this.filter = () => true
+      }
+
       // }
       this.updateHandle = null
       if (this.intervalTime) {
@@ -171,8 +179,13 @@
     }
   
     getData(keyValue) {
-      this.getStorage(keyValue.storage)
-      this.sendMessage(keyValue.query)
+      let fileType = keyValue.storage.slice(0, 3)
+      let index = this.fileTypeList.indexOf(fileType)
+      let file = this.fileList[index]
+      if(file.filter()) {
+        this.getStorage(keyValue.storage)
+        this.sendMessage(keyValue.query)
+      }  
     }
   
     sendMessage(msg) {
