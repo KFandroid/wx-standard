@@ -2,8 +2,11 @@
 <view class="flex-box flex-column">
     <view class="flex-row thead">
       <!-- <text class="flex-cell flex-row col-16-1">序</text> -->
-      <view class="flex-cell col-16-5 flex-start">
+      <view class="flex-cell col-16-3 flex-between">
         <text class="text">股票</text>
+      </view>
+      <view class="flex-cell col-16-2 flex-between">
+        <text class="text">代码</text>
       </view>
       <view class="flex-cell flex-row col-16-3 flex-2-row">
         <text class="text">最新</text>

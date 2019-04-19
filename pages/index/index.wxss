@@ -16,6 +16,7 @@
     float:left;
     color:#949494;
     /*height:40rpx;*/
+    clear:both;
 }
 .sea_btn::after{
   display: block;
@@ -27,6 +28,7 @@
 .index {
     /* margin:0 20rpx; */
     overflow: hidden;
+    background-color: #1b1b1b;
 }
 .hide {
     display: none;
@@ -40,7 +42,7 @@
     border-right: 1rpx solid #7c7c7c;
   }
   .selected {
-      background-color: #F2F2F2;
+      background-color: #1b1b1b;
       color: #FF6633;
   }
   .menu-btn {
