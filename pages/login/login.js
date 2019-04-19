@@ -93,7 +93,7 @@ Page({
       method:'POST',
       data: data,
       header: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/json"
       },
       success: (res) =>{
         console.log(res);

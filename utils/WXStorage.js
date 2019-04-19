@@ -1,12 +1,22 @@
   
   const app = getApp()
+
+  
+  /**
+   * type: 文件类型
+   * isReturn 是否返回了数据
+   * changeCb 当数据返回时的回调函数
+   * createKey 创建Key值的函数
+   * filter 过滤器，当过滤器返回true时请求数据没有过滤器的file给个默认返回true的函数
+   * intervalTime 间隔时间，当file存在间隔时间时则会定时请求
+   */
   class WXFile {
     constructor(file, storage) {
       this.type = file.type
       this.isReturn = true
       this.changeCb = (data) => {
         
-        file.changeCb.bind(file.ctx)(data)
+        file.changeCb.bind(file.ctx)(data) //绑定file的上下文 箭头函数的this优先级比bind的优先级高
         this.isReturn = true
       }
       this.createKey = () => {
@@ -35,7 +45,7 @@
   
     // this.isCallMainBack = file.isCallMainBack
   
-  
+  // 删除file时的操作，目前仅清空定时器
     deleteFile() {
   
       if (this.updateHandle) {
@@ -46,6 +56,7 @@
   }
   
   
+// 管理file的容器
   class WXStorage {
     /**
      *
@@ -56,6 +67,7 @@
       this.fileList = []
       this.fileTypeList = []
       this.upDateHandle = []
+      // 新建
       for (let i = 0; i < fileList.length; i++) {
         this.fileList.push(new WXFile(fileList[i], this))
         this.fileTypeList.push('' + fileList[i].type)
@@ -74,7 +86,7 @@
       return flag
     }
     /**
-     * 
+     * 添加一个file，并请求
      * @param {Object} file 
      */
     addFile(file) {
@@ -87,7 +99,7 @@
       this.fileTypeList.push('' + file.type)
       this.getData(key)
     }
-  
+    // 根据fileType删除file
     deleteFile(fileType) {
       fileType = '' + fileType
       let index = this.fileTypeList.indexOf(fileType)
@@ -101,7 +113,7 @@
   
       }
     }
-  
+  // 清空所有的file
     clearFile() {
       
       let fileList = [].concat(this.fileList)
@@ -117,6 +129,7 @@
       })
     }
   
+    // 请求一遍所有的file
     getFileData() {
       this.fileList.forEach(file => {
         let key = file.createKey()
@@ -124,12 +137,13 @@
       })
     }
     /**
-     * 
+     * 监听file的改变
      * @param {String} fileType 
-     * @param {Object} data 
+     * @param {Object} data
      */
     observeFileChange(fileType, data) {
       let fileIndex = this.fileTypeList.indexOf(fileType)
+      // 当file改变时，将数据存入内存
       if (fileIndex > -1) {
         this.setAData(fileType, data)
         let changeData = this.fileList[fileIndex].changeCb(data)
@@ -140,7 +154,7 @@
     }
   
     /**
-     * 将数据赋值到正在运行的页面中
+     * 将数据存入内存
      * @param {String} key 
      * @param {Object} data 
      */
@@ -177,12 +191,12 @@
         this.observeFileChange(fileType, data)
       }
     }
-  
+  // 发送请求
     getData(keyValue) {
       let fileType = keyValue.storage.slice(0, 3)
       let index = this.fileTypeList.indexOf(fileType)
       let file = this.fileList[index]
-      if(file.filter()) {
+      if(file.filter()) { //如果file满足发送条件则发送否则不发送
         this.getStorage(keyValue.storage)
         this.sendMessage(keyValue.query)
       }  

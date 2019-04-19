@@ -2,7 +2,7 @@
     utf8ByteArrayToString
   } from './crypt.js'
   import analysisByte from './analysis.js'
-  
+  //长链接地址群
   // let url = 'ws://222.190.119.83:8082/l1WebSocket' // 外网地址
   // let url = 'ws://47.101.191.138:8082/l1WebSocket' // aliyun地址
   // let url = 'ws://192.168.137.50:8082/l1WebSocket' // 张孙浩
@@ -14,6 +14,7 @@
   let connectCount = 0
   let socketTask
   let socketConnectFail
+  // 短连接地址群
   export const shortConnectUrl = '101.132.168.103:7877' // 线上
 // export const shortConnectUrl = '192.168.0.104:8081' // 小伍
   export const createConnect = () => {
@@ -74,7 +75,7 @@
     })
   }
   
-  export const connect = function(cb) { // 定义一个方法
+  export const connect = function(cb) { // 接受一个函数，当请求到数据时，执行此函数
     wx.onSocketMessage(function(res) { // 监听WebSocket接受到服务器的消息事件。
       cb(analysisByte(res.data))
     })
