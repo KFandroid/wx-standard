@@ -3,5 +3,7 @@
     "component-indexSearch": "../../components/indexSearch2/indexSearch2",
     "component-optionalStock": "../../components/optionalStock/optionalStock",
     "component-indexPanel": "../../components/indexPanel/indexPanel"
-  }
+  },
+  "navigationBarBackgroundColor":"#1b1b1b",
+  "navigationBarTextStyle": "white"
 }

@@ -1,7 +1,7 @@
 /* components/optionalStock/optionalStock.wxss */
 @import "../../utils/wxss/column.wxss";
 .selected {
-  background: #ff6600;
+  color: #ff6600;
 }
 .red{
   background-color: #FF2929;
@@ -34,7 +34,7 @@
   border: 2rpx solid gray;
   box-sizing: border-box;
   height: 52rpx;
-  
+  background-color:#282828;
 }
 .select-custom {
   overflow:hidden;
@@ -49,11 +49,12 @@
   display: inline-block;
   /* height: 50rpx;
   line-height: 50rpx; */
-  color:white;
+  color:#f2f2f2;
   line-height: 46rpx;
   box-sizing: border-box;
   height:46rpx;
-  background: #999;
+  background: #282828;
+  border:1rpx solid #434343;
 }
 .right-btn {
   /* float:right; */
@@ -112,11 +113,12 @@
 }
 
 .flex-box {
-  background: #fff;
+  background: #1b1b1b;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
+  padding:0 10px;
 }
 
 .flex-cell {
@@ -168,8 +170,9 @@
   border-bottom: 2rpx solid gray;
   position: sticky;
   top: 126rpx;
-  background-color: #fff;
+  background-color: #1b1b1b;
   z-index: 99;
+  color:#f2f2f2;
 }
 
 .thead .flex-cell {
@@ -224,6 +227,8 @@
 }
 .content {
   padding:0 10px;
+  color:#f2f2f2;
+
 }
 .childTitle {
   font-size: 24rpx;

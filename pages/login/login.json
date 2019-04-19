@@ -1,5 +1,7 @@
 {
   "usingComponents": {
     "index-panel" : "../../components/indexPanel/indexPanel"
-  }
+  },
+  
+  "backgroundColor": "#1b1b1b"
 }

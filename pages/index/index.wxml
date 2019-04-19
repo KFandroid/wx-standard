@@ -4,7 +4,7 @@
   <view class="search-btn clear">
     <navigator url="../../pages/search/search" class="btn sea_btn" bindtap="viewTap" >
       <image src="../../utils/images/search.png" style='max-width: 50rpx; height: 34rpx;' mode="aspectFit"></image>
-      请输入股票代码/名称/简拼
+      <text>请输入股票代码/名称/简拼</text>
     </navigator>
     <image class="personal" src="../../utils/images/me.png" mode="aspectFit"/>
   </view>

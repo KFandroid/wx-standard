@@ -9,7 +9,7 @@
 }
 .index_detail{
     flex:1;
-    border:2rpx solid #b8b8b7;
+    border:2rpx solid #434343;
     
     /* display:flex; */
     padding:6rpx;
@@ -19,9 +19,10 @@
     margin: 0 10rpx
 }
 .index_search{
-    background-color:#bdbdbd;
+    background-color:#1b1b1b;
     width:20rpx;
     position:relative;
+    border:2rpx solid #434343;
 }
 .index{
     text-align:center;
@@ -35,7 +36,7 @@
 }
 .index_name {
     flex-wrap: nowrap;
-    color:#666;
+    color:#f2f2f2;
     text-indent:-8rpx;
 
 }
@@ -62,12 +63,12 @@
     width: 100%;
 }
 .triangle_border_right{
-     background-color:#bdbdbd;
+     background-color:#1b1b1b;
     width:0;
     height:0;
     border-width:20rpx 0 20rpx 20rpx;
     border-style:solid;
-    border-color:transparent transparent transparent #333;/*透明 透明 透明 灰*/
+    border-color:transparent transparent transparent #f2f2f2;/*透明 透明 透明 灰*/
 
     position:absolute;
     top:50%;
