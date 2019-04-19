@@ -156,10 +156,6 @@
       </view>
     </view>
     <view class="right col-24-8" wx:if="{{showDeal}}">
-      <view class="menu-bar flex-box col-16-16">
-        <view class="col-16-8 btn {{sideSelect==1?'btn-selected':''}}" bindtap='changeSideSelect' data-index="1">行情</view>
-        <view class="col-16-8 btn {{sideSelect==2?'btn-selected':''}}" bindtap='changeSideSelect' data-index="2" style="border-right:none;">资料</view>
-      </view>
       <view class="right-top">
         <agent-info class="{{sideSelect==1?'':'hide'}}" agentData="{{agentInfo}}"></agent-info>
         <data-bank class="{{sideSelect==2?'':'hide'}}"></data-bank>

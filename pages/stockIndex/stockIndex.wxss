@@ -67,7 +67,7 @@
 }
 .left-top {
   overflow: auto;
-  height: 250rpx;
+  height: 300rpx;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -101,7 +101,7 @@
 }
 
 .left-bottom {
-  height: 120rpx;
+  height: 150rpx;
 }
 
 .right {
@@ -111,11 +111,12 @@
 .right-top {
   height: 300rpx;
   box-sizing: border-box;
+  border-top: 2rpx solid gray;
   border-bottom: 2rpx solid gray;
 }
 
 .right-bottom {
-  height: 120rpx;
+  height: 150rpx;
 }
 
 #canvasBottom {

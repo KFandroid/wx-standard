@@ -290,6 +290,8 @@ Component({
     },
     drawGrid(ctx) {
       ctx.setStrokeStyle('rgba(186, 186, 186, 0.6)')
+      ctx.setLineDash([3, 3], 2)
+      
       const yLineNum = 3
       let spd = this.data.yRange[1] / yLineNum
       for (let i = 1; i <= yLineNum; i++) {
@@ -297,6 +299,7 @@ Component({
         ctx.lineTo(this.data.xRange[1], spd * i)
       }
       ctx.stroke()
+      ctx.setLineDash([0, 0], 0)
     },
     drawText(ctx) {
       const midY = this.data.yRange[1] / 2
