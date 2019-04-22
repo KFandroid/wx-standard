@@ -3191,6 +3191,9 @@ Component({
         if(newData.data.length === 0) {
           this.clearCanvas()
         }
+        if(newData.data.length > 0) {
+          this.data.lastDate = newData.data[newData.data.length - 1].date
+        }
         if (newData.data.length > 0 && !this.data.firstInit) {
           this.data.firstInit = true
           if (this.data.kSettingItem.fsHair) {
@@ -3210,6 +3213,7 @@ Component({
           initTimeTable.push(Object.assign({}, timeTable[i]))
         }
         // 重新赋值
+        
         for(let i = 0; i < newData.data.length; i++) {
           temp = newData.data[i]
           for(let j = 0; j < initTimeTable.length; j++) {
@@ -3262,6 +3266,7 @@ Component({
       pcp: 0
     },
     currentIndex: -1,
+    lastDate: 930,
     xRange: [0, 300],
     gap: 1,
     callAuctionCloseArr: [1030, 1130, 1400],
@@ -3283,6 +3288,7 @@ Component({
    */
   lifetimes: {
     attached() {
+      // 先获取k线和分时的设置
       let kSettingItem = wx.getStorageSync('kSettingItem')
       if (kSettingItem) {
         this.setData({
@@ -3327,13 +3333,21 @@ Component({
     },
     getNextDataIndex(index, step) {
       let time = this.transferIndex2Time(index)
+      if(time > this.data.lastDate) {
+        time = this.data.lastDate
+      }
       let realIndex = index
       for (let i = 0; i < this.data.data.data.length; i++) {
         if (this.data.data.data[i].date === time) {
           realIndex = i
         }
       }
-      realIndex += step
+      if(time < this.data.lastDate && step > 0) {
+        realIndex += step
+      } else if( step < 0){
+        realIndex += step
+      }
+      
       if(realIndex < 0) {
         realIndex = 0
       } else if(realIndex >= this.data.data.data.length) {
@@ -3361,11 +3375,8 @@ Component({
       // } else if(index < this.data.currentTimeIndex && step > 0){
       //   index += step
         // let time = this.transferIndex2Time(index)
-        
         if(this.data.currentIndex == index) {
-          if(direction == 'left') {
-            EventBus.emit('diagramUnableLeft')
-          } else {
+          if(direction == 'right') {
             EventBus.emit('diagramUnableRight')
           }
           return
@@ -3497,6 +3508,12 @@ Component({
           tempData = Object.assign({}, this.data.data.data[i])
         }
       }
+      if(parseInt(price) === 0) {
+        let lastDateIndex = this.transfer2TimeIndex(this.data.lastDate)
+        this.data.currentIndex = lastDateIndex
+        price = this.data.data.data[lastDateIndex].dealPrice
+        tempData = Object.assign({}, this.data.data.data[lastDateIndex])
+      }
       tempData.date = tempData.date.replace(/(\d{2})(\d{2})/, "$1:$2")
 
       tempData.dealA = getNumUnit(tempData.dealA)
@@ -3531,16 +3548,26 @@ Component({
       let data = this.data.data
       
       let zuidacha = (data.pcp * 0.02).toFixed(2)
-      let lastDate = data.data[data.data.length - 1].date
+      let lastDate = this.data.lastDate
       let currentTimeIndex = this.transfer2TimeIndex(lastDate)
 
       this.data.currentTimeIndex = currentTimeIndex
       let zuidacha1 = Math.abs(data.pcp - data.hp).toFixed(2)
       let zuidacha2 = Math.abs(data.pcp - data.lp).toFixed(2)
+      
       if (parseFloat(zuidacha1) >= parseFloat(zuidacha2)) {
         zuidacha = parseFloat(zuidacha1) > parseFloat(zuidacha) ? parseFloat(zuidacha1) : parseFloat(zuidacha)
       } else {
         zuidacha = parseFloat(zuidacha2) > parseFloat(zuidacha) ? parseFloat(zuidacha2) : parseFloat(zuidacha)
+      }
+      if(this.data.kSettingItem.jhjj) {
+        let zuidacha3 = Math.abs(data.pcp - data.jhlp).toFixed(2)
+        let zuidacha4 = Math.abs(data.pcp - data.jhhp).toFixed(2)
+        if (parseFloat(zuidacha3) >= parseFloat(zuidacha4)) {
+          zuidacha = parseFloat(zuidacha3) > parseFloat(zuidacha) ? parseFloat(zuidacha3) : parseFloat(zuidacha)
+        } else {
+          zuidacha = parseFloat(zuidacha4) > parseFloat(zuidacha) ? parseFloat(zuidacha4) : parseFloat(zuidacha)
+        }
       }
       let zhi = parseFloat(zuidacha) + parseFloat(data.pcp)
       let chaPercent = (parseFloat(zuidacha) / parseFloat(data.pcp) * 100).toFixed(2)
@@ -3661,17 +3688,33 @@ Component({
     },
     drawAPL(ctx) {
       let data = this.data.data.data
+      ctx.setLineDash([0, 0], 0)
       let i = 0
       while (parseInt(data[i].date) < 930) {
         i++
       }
-      ctx.beginPath()
-      ctx.moveTo(data[i].x, data[i].averagey)
-
+      let startIndex = 0
       for (let length = data.length; i < length; i++) {
-        ctx.lineTo(data[i].x, data[i].averagey)
+        if(parseInt(data[i].dealPrice) != 0 ) {
+          startIndex = i
+          break
+        }
       }
-
+      ctx.beginPath()
+      ctx.moveTo(data[startIndex].x, data[startIndex].averagey)
+      let prevData = data[startIndex]
+      for (let i = startIndex + 1, length = data.length; i < length; i++) {
+        
+        if(data[i].dealA !== 0 || parseInt(data[i].dealPrice) !== 0) {
+          ctx.lineTo(data[i].x, data[i].averagey)
+          prevData = data[i]
+        } else if(data[i].averageDa !== 0){
+          
+          ctx.lineTo(data[i].x, prevData.averagey)
+        }
+        
+      }
+      
       ctx.setStrokeStyle('orange')
       ctx.stroke()
       ctx.closePath()

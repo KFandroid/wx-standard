@@ -189,6 +189,7 @@ import {
       temp.bill = Math.round(dataView.getInt16(i * dataByteLength + 36 + 22))
       data.data.push(temp)
     }
+    
     return data
   }
   // 分时数据

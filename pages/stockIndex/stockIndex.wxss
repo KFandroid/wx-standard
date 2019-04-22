@@ -116,7 +116,7 @@
 }
 
 .right-bottom {
-  height: 150rpx;
+  height: 250rpx;
 }
 
 #canvasBottom {

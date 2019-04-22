@@ -56,6 +56,7 @@ Component({
       type: Object,
       value: {},
       observer(newData, oldData) {
+        
         if (newData && newData.data) {
           if (oldData.data && oldData.page !== newData.page && this.data.firstInit) {
             this.data.start += newData.data.length
@@ -413,7 +414,7 @@ Component({
         right -= this.data.end + right - this.data.data.rf.length
       }
       if (this.data.start - left < 0) {
-
+        
         if (this.data.kLinesData.page !== '001') {
           EventBus.emit('changestocktarget')
           this.triggerEvent("getPrevData", this.addZero(this.data.kLinesData.page - 1, 3))
@@ -578,6 +579,22 @@ Component({
         }
         // this.calculateCrosshair({ x: this.data.xDomain[currentIndex], type })
         this.data.currentIndex = currentIndex
+        let type
+        switch (this.data.selectIndex) {
+          case 2:
+            type = 'kline'
+            break
+          case 3:
+            type = 'k5line'
+            break
+          case 4:
+            type = 'k30line'
+            break
+          case 5:
+            type = 'kweekline'
+            break
+        }
+        EventBus.emit('movecrosshair', { x: this.data.xDomain[currentIndex], type })
 
       }
     },

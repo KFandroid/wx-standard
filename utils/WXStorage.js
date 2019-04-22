@@ -30,6 +30,7 @@
           return file.filter.bind(file.ctx)()
         }
       } else {
+        
         this.filter = () => true
       }
 
@@ -106,7 +107,6 @@
   
       if (index > -1) {
         let file = this.fileList[index]
-  
         file.deleteFile()
         this.fileTypeList.splice(index, 1)
         this.fileList.splice(index, 1)
@@ -196,6 +196,7 @@
       let fileType = keyValue.storage.slice(0, 3)
       let index = this.fileTypeList.indexOf(fileType)
       let file = this.fileList[index]
+      
       if(file.filter()) { //如果file满足发送条件则发送否则不发送
         this.getStorage(keyValue.storage)
         this.sendMessage(keyValue.query)

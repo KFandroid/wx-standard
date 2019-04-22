@@ -127,6 +127,25 @@ Page({
       counts: this.data.counts
     })
   },
+  upToTop(e) {
+    let temp = wx.getStorageSync('customStockClass')
+    let name = ''
+    for (let i = 0; i < temp.length; i++) {
+      if (i == e.currentTarget.dataset.index) {
+        name = temp[i].name
+        let data = temp.splice(i, 1)
+        
+        temp.splice(1, 0, data[0])
+      }
+    }
+    
+    wx.setStorageSync('customStockClass', temp)
+    this.data.counts.splice(e.currentTarget.dataset.index, 1)
+    this.data.counts.splice(e.currentTarget.dataset.index, 1)
+    this.setData({
+      blocklists: temp,
+    })
+  },
   openEditPop(e) {
     this.popup2.showPopup();
     this.setData({

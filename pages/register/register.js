@@ -107,7 +107,7 @@ Page({
           subscriberPhone: tel
         },
         header: {
-          "Content-Type": "application/x-www-form-urlencoded"
+          "Content-Type": "application/json"
         },
         success(res) {    //请求失败
           console.log(res)
@@ -165,7 +165,7 @@ Page({
                 code:res.code
               },
               header: {
-                "Content-Type": "application/x-www-form-urlencoded"
+                "Content-Type": "application/json"
               },
               success(res) {
                 if(res.data.code === "01") {

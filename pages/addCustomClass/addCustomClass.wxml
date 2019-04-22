@@ -9,6 +9,7 @@
     <view class="item">数量</view>
     <view class="item">删除</view>
     <view class="item">编辑</view>
+    <view class="item">操作</view>
   </view>
   <view class="table_row" wx:for="{{blocklists}}" wx:key="{{index}}">
     <view class="item name">{{item.name}}</view>
@@ -20,6 +21,10 @@
     <view class="item">
       <image wx:if="{{item.name=='自选股'}}" src="../../utils/images/edit_grey.png" style='max-width: 32rpx; height: 32rpx;' mode="aspectFit"></image>
       <image bindtap='openEditPop' data-index="{{index}}" wx:else src="../../utils/images/edit.png" style='max-width: 32rpx; height: 32rpx;' mode="aspectFit"></image>
+    </view>
+    <view class="item">
+      <view wx:if="{{item.name=='自选股'}}" style='width: 100%; height: 32rpx; text-algin: center;'>置顶</view>
+      <view bindtap='upToTop' data-index="{{index}}" wx:else style='width: 100%; height: 32rpx;text-algin: center;'>置顶</view>
     </view>
   </view>
 </view>
