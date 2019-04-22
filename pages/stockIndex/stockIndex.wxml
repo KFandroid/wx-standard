@@ -82,7 +82,7 @@
   <view class="main-view flex-box col-16-16">
     <view class="left col-24-16">
       <view class="menu-bar flex-box col-16-16">
-        <view class="col-16-2 btn {{selectIndex==1?'btn-selected':''}}" bindtap="{{selectIndex!==1?'changeSelectIndex':''}}" data-index="1" style="width: 170rpx;">
+        <view class="col-16-2 btn {{selectIndex==1?'btn-selected':''}}" bindtap="{{selectIndex!==1?'changeSelectIndex':''}}" data-index="1" style="width: 70rpx;">
           分时
         </view>
         <view class="col-16-2 btn {{selectIndex==2?'btn-selected':''}}" bindtap="{{selectIndex!==2?'changeSelectIndex':''}}" data-index="2" style="width: 70rpx;">
