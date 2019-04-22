@@ -526,13 +526,13 @@ Component({
       EventBus.emit('changeRFData', [].concat(this.data.needData))
       let tempData = this.data.needData[this.data.needData.length - 1]
       let endDate = this.data.needData[this.data.needData.length - 1].date
-      if (!this.data.showCrosshair) {
-        tempData.showValue = getNumUnit(tempData.value)
-        tempData.showVolume = getNumUnit(tempData.volume)
-        tempData.rise = (parseFloat(tempData.price) - parseFloat(tempData.open)) / parseFloat(tempData.open) * 100
-        tempData.rise = (tempData.rise).toFixed(2)
-        EventBus.emit('changekInfo', tempData)
-      }
+      // if (!this.data.showCrosshair) {
+      //   tempData.showValue = getNumUnit(tempData.value)
+      //   tempData.showVolume = getNumUnit(tempData.volume)
+      //   tempData.rise = (parseFloat(tempData.price) - parseFloat(tempData.open)) / parseFloat(tempData.open) * 100
+      //   tempData.rise = (tempData.rise).toFixed(2)
+      //   EventBus.emit('changekInfo', tempData)
+      // }
       let startDate = this.data.needData[0].date
       let dateArr = this.data.needData.map(element => element.date)
 
