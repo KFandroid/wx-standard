@@ -75,6 +75,7 @@ Page({
           id: +(+new Date() + "").substring(0, 10),
         })
         let customStockTable = wx.getStorageSync('customStockTable')
+        console.log('customStockTable', customStockTable, 'customStockTable name is', this.data.customName)
         customStockTable[this.data.customName] = []
         wx.setStorageSync('customStockTable', customStockTable)
         this.data.counts.push(0)
