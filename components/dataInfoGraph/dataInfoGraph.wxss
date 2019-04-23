@@ -3,6 +3,7 @@
 .cover{
     overflow: auto;
     position:relative;
+    color: #868686;
 }
 .main-title {
     font-size: 24rpx;

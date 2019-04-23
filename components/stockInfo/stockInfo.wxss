@@ -12,6 +12,8 @@
   align-items: stretch;
 }
 
+
+
 .flex-cell {
   box-sizing: border-box;
   display: flex;
@@ -30,4 +32,17 @@
   border: 1rpx solid #eee;
   line-height: 54rpx;
   height: 54rpx;
+}
+
+.bga{
+  color:#949494;
+}
+.bgb{
+  color:#a21d10;
+}
+.bgc{
+  color:#048204;
+}
+.bgd{
+  color:#bcbcbc;
 }

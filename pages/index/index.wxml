@@ -8,7 +8,9 @@
     </navigator>
     <image class="personal" src="../../utils/images/me.png" mode="aspectFit"/>
   </view>
-    <component-indexPanel></component-indexPanel>
+    <view style="padding:0 20rpx">
+      <component-indexPanel></component-indexPanel>
+    </view>
   <!-- <component-indexSearch t101="{{t101}}" 
   t106="{{t106}}" 
   t102="{{t102}}"

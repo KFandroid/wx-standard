@@ -4,7 +4,7 @@
 
   <view class="content {{showContent == true? 'show' : 'hide'}}">
     <view class="box">
-      <text>账号</text><input type="text" placeholder="" data-key="loginName" bindinput="changeInput" auto-focus/>
+      <text>账号</text><input type="text" placeholder="" data-key="loginName" bindinput="changeInput"/>
     </view>
     <view class="box up">
       <text>密码</text><input type="password" placeholder="" data-key="passsWord" bindinput="changeInput"  password />
@@ -28,7 +28,7 @@
       </view>
     </view>
       
-    <image mode="aspectFit" style="max-height:88rpx;" data-type="1" bindtap="accountLogin" src="../../utils/images/wechat.png"/>
+    <image mode="aspectFit" style="max-height:88rpx;margin:0 auto;" data-type="1" bindtap="accountLogin" src="../../utils/images/wechat.png"/>
      
   </view>
   <!-- <view class="version_choice {{hideContent == true? 'hide':'show'}}">

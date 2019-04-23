@@ -49,7 +49,8 @@ import {
       order += 4
       obj.zdj = stockTableView.getFloat32(order).toFixed(2)
       order += 4
-      obj.cjl = getNumUnit(Math.round((stockTableView.getFloat32(order))))
+     /*  obj.cjl = getNumUnit(Math.round((stockTableView.getFloat32(order)))) */
+     obj.cjl = Math.round((stockTableView.getFloat32(order)))
       order += 4
       obj.cje = getNumUnit(Math.round((stockTableView.getFloat32(order))))
       order += 4
@@ -62,7 +63,6 @@ import {
       data.data.push(obj)
       if (order >= stockTableView.byteLength) break;
     }
-    
     return data
   }
   

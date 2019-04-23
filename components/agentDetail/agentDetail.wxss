@@ -11,10 +11,11 @@
   display: flex;
 }
 
-.row .item {
+.item {
   flex: 1;
   font-size: 20rpx;
   text-align: center;
+  color:#d7d7d7;
 }
 
 /* 

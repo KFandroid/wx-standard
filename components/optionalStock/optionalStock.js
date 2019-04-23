@@ -1,6 +1,9 @@
 // components/optionalStock/optionalStock.js
 import EventBus from '../../utils/pubsub.js'
 import storage from '../../utils/WXStorage.js'
+import {
+  getNumUnit
+} from '../../utils/changeUnit.js'
 const app = getApp()
 Component({
   properties: {
@@ -16,6 +19,7 @@ Component({
       value: null,
       observer(data) {
         
+       
         for (let i = 0; i < this.data.codeDetail.length; i++) {
           for (let j = 0; j < data.data.length; j++) {
             
@@ -28,7 +32,7 @@ Component({
         for (let i = 0; i < this.data.allData.length; i++) {
           let flag = true;
           for (let j = 0; j < data.data.length; j++) {
-            if (this.data.allData[i].stockCode = data.data[j].stockCode) {
+            if (this.data.allData[i].stockCode === data.data[j].stockCode) {
               flag = false;
             }
           }
@@ -37,6 +41,7 @@ Component({
           }
         }
         for(let i = 0; i < data.data.length; i++) {
+          data.data[i].oriCjl = data.data[i].cjl
           if(parseFloat(data.data[i].zf) > 0 ) {
             
             data.data[i].riseFlag = true
@@ -45,10 +50,21 @@ Component({
           } else {
             data.data[i].riseFlag = 0
           }
+          data.data[i].oriCjl = data.data[i].cjl
+          data.data[i].cjl = getNumUnit(data.data[i].cjl)
         }
-        this.setData({
-          allData: data.data
-        })
+
+        let oriData = data.data
+        let items = this.data.itemsFlag
+        
+        if(items!==''){
+          
+          this.sortList(items,oriData)
+          }else {
+          this.setData({
+            allData:oriData
+          })
+        }
       }
     }
   },
@@ -64,6 +80,10 @@ Component({
     totalPage: 1,
     plateWidth:0,
     codeStr: '',
+    itemsFlag: '' ,
+    lastFlag:'',
+    trangDirction: null,  // true 为 上，false 为下
+    trangStatus: false,  //记录当前是否点击了字段
   },
   pageLifetimes: {
     show() {
@@ -278,6 +298,87 @@ Component({
         stock: currentStock,
         stockList: lists
       })
+    },
+flagItem(e){
+  let item = e.currentTarget.dataset.item
+  console.log(item)
+  if(!this.data.trangStatus){
+    debugger
+    this.setData({
+      trangStatus:true,
+      trangDirction:true,
+      lastFlag:item,  //记录当前字段方便切换对比
+      itemsFlag:item
+    })
+  }else{
+    
+    if(this.data.lastFlag==item){ //只在当前字段进行排序
+      debugger
+      this.setData({
+        trangDirction:!this.data.trangDirction,
+      })
+    }else{      //切换到其他字段排序
+      debugger
+      this.setData({
+        itemsFlag:item,
+        lastFlag: item,
+        trangDirction:true,
+
+      })
+    }
+    
+  }
+      /* this.setData({
+        itemsFlag:item,
+        
+      }) */
+      let data = this.data.allData
+     
+      this.sortList(item,data)
+    },
+    //自选股排序判断
+    compare (property) {
+      return function(a,b){
+          var value1 = a[property];
+          var value2 = b[property];
+          return value1 - value2;
+       }
+    },
+    sortList(items,data){
+      
+      switch(items)
+          {
+            case 'gp':
+            console.log(items)
+            break;
+          
+            case 'dm':
+            console.log(items)
+            this.setData({
+              allData:data.sort(this.compare('stockCode'))
+            })
+            break;
+          
+            case 'zx':
+            console.log(items)
+              this.setData({
+                allData:data.sort(this.compare('cjj'))
+              })
+            break;
+          
+            case 'zf':
+            console.log(items)
+            this.setData({
+              allData:data.sort(this.compare('zf'))
+            })
+            break;
+
+            case 'cjl':
+            this.setData({
+              allData:data.sort(this.compare('oriCjl'))
+            })
+            break;
     }
   }
+}
 })

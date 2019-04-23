@@ -2,21 +2,27 @@
 <view class="flex-box flex-column">
     <view class="flex-row thead">
       <!-- <text class="flex-cell flex-row col-16-1">序</text> -->
-      <view class="flex-cell col-16-3 flex-between">
+      <view class="flex-cell col-16-3 {{itemsFlag==='gp'?'flex-start':'flex-between'}}" bindtap="flagItem" data-item="gp">
         <text class="text">股票</text>
+<image wx:if="{{itemsFlag === 'gp'}}" class="" src="../../utils/images/trang-up.png" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;'/>
+          
       </view>
-      <view class="flex-cell col-16-2 flex-between">
+      <view class="flex-cell col-16-2 {{itemsFlag==='dm'?'flex-start':'flex-between'}}" bindtap="flagItem" data-item="dm">
         <text class="text">代码</text>
+        <image wx:if="{{itemsFlag === 'dm'}}" class="" src="../../utils/images/trang-up.png" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;'/>
       </view>
-      <view class="flex-cell flex-row col-16-3 flex-2-row">
+      <view class="flex-cell flex-row col-16-3  {{itemsFlag==='zx'?'flex-between':'flex-2-row'}}" bindtap="flagItem" data-item="zx">
         <text class="text">最新</text>
+        <image wx:if="{{itemsFlag === 'zx'}}" class="" src="../../utils/images/trang-up.png" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;'/>
         
       </view>
-      <view class="flex-cell flex-row col-16-4 flex-2-row">
+      <view class="flex-cell flex-row col-16-4 " bindtap="flagItem" data-item="zf" >
       <text class="text">涨幅</text>
+      <image wx:if="{{itemsFlag === 'zf'}}" class="" src="../../utils/images/trang-up.png" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;'/>
       </view>
-      <view class="flex-cell flex-row col-16-3 flex-2-row">
+      <view class="flex-cell flex-row col-16-3  {{itemsFlag==='cjl'?'flex-between':'flex-2-row'}} " bindtap="flagItem" data-item="cjl">
         <text class="text">成交量</text>
+        <image wx:if="{{itemsFlag === 'cjl'}}" class="" src="../../utils/images/trang-up.png" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;' />
       </view>
       <view class="flex-cell flex-row col-16-1 flex-2-row">
       </view>

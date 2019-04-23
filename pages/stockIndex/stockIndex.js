@@ -382,6 +382,7 @@ Page({
       name: '指标',
       show: true
     }],
+    rightBottomHei: 0 ,
     ydlsData: {},
     ydCurrentData: {},
     ydStockLsData: {},
@@ -2042,6 +2043,7 @@ Page({
     this.diagram.closeCrosshair()
   },
   setView() {
+    
     const query = wx.createSelectorQuery().in(this)
     query.select('.left-top').boundingClientRect(function (res) {
       res.top
@@ -2071,7 +2073,6 @@ Page({
     query.exec((res) => {
       let height = res[2].height
       let width = res[2].width
-
       this.setData({
         dealHeight: height,
         dealWidth: width
@@ -2088,6 +2089,15 @@ Page({
       
       this.setData({
         underViewHeight,
+      })
+    })
+
+    query.select('.right-top').boundingClientRect(function (res) {
+      res.top
+    })
+    query.exec((res) => {
+      this.setData({
+        rightBottomHei : res[5].height-res[6].height
       })
     })
   },
