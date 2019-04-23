@@ -56,6 +56,7 @@ Component({
       type: Object,
       value: {},
       observer(newData, oldData) {
+        
         if (newData && newData.data) {
           if (oldData.data && oldData.page !== newData.page && this.data.firstInit) {
             this.data.start += newData.data.length
@@ -413,7 +414,7 @@ Component({
         right -= this.data.end + right - this.data.data.rf.length
       }
       if (this.data.start - left < 0) {
-
+        
         if (this.data.kLinesData.page !== '001') {
           EventBus.emit('changestocktarget')
           this.triggerEvent("getPrevData", this.addZero(this.data.kLinesData.page - 1, 3))
@@ -525,13 +526,13 @@ Component({
       EventBus.emit('changeRFData', [].concat(this.data.needData))
       let tempData = this.data.needData[this.data.needData.length - 1]
       let endDate = this.data.needData[this.data.needData.length - 1].date
-      if (!this.data.showCrosshair) {
-        tempData.showValue = getNumUnit(tempData.value)
-        tempData.showVolume = getNumUnit(tempData.volume)
-        tempData.rise = (parseFloat(tempData.price) - parseFloat(tempData.open)) / parseFloat(tempData.open) * 100
-        tempData.rise = (tempData.rise).toFixed(2)
-        EventBus.emit('changekInfo', tempData)
-      }
+      // if (!this.data.showCrosshair) {
+      //   tempData.showValue = getNumUnit(tempData.value)
+      //   tempData.showVolume = getNumUnit(tempData.volume)
+      //   tempData.rise = (parseFloat(tempData.price) - parseFloat(tempData.open)) / parseFloat(tempData.open) * 100
+      //   tempData.rise = (tempData.rise).toFixed(2)
+      //   EventBus.emit('changekInfo', tempData)
+      // }
       let startDate = this.data.needData[0].date
       let dateArr = this.data.needData.map(element => element.date)
 
@@ -578,6 +579,22 @@ Component({
         }
         // this.calculateCrosshair({ x: this.data.xDomain[currentIndex], type })
         this.data.currentIndex = currentIndex
+        let type
+        switch (this.data.selectIndex) {
+          case 2:
+            type = 'kline'
+            break
+          case 3:
+            type = 'k5line'
+            break
+          case 4:
+            type = 'k30line'
+            break
+          case 5:
+            type = 'kweekline'
+            break
+        }
+        EventBus.emit('movecrosshair', { x: this.data.xDomain[currentIndex], type })
 
       }
     },

@@ -160,6 +160,8 @@ Component({
           id: +(+new Date() + "").substring(0, 10),
           name: '自选股'
         }])
+        wx.setStorageSync('customStockTable', {
+          '自选股': []})
       }
       this.setData({
         selector: wx.getStorageSync('customStockClass')

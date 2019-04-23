@@ -49,7 +49,11 @@ Page({
     app.globalData.stockList = app.globalData.a105.data
     app.globalData.currentPage = 'index'
     storage.deleteFile(101)
-    let indexSearchHeight = sysInfo.windowHeight - 125 - 210
+    let indexSearchHeight = sysInfo.windowHeight - 120 - 200
+    if(sysInfo.windowHeight > 800) {
+      indexSearchHeight -= 20
+    }
+    
     
     this.setData({
       indexSearchHeight,

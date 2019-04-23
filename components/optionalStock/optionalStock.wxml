@@ -54,7 +54,7 @@
             <text>{{item.cjl}}</text>
           </view>
           <view data-item="{{item}}" class="flex-cell flex-row col-16-1 flex-2-row" bindtap="removeThis">
-            <image src="../../utils/images/delete.png" style='max-width: 36rpx; height: 28rpx;' mode="aspectFit"></image>
+            <image src="../../utils/images/delete_grey.png" style='max-width: 36rpx; height: 28rpx;' mode="aspectFit"></image>
       </view>
         </view>
       </block>

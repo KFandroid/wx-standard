@@ -82,8 +82,8 @@
   <view class="main-view flex-box col-16-16">
     <view class="left col-24-16">
       <view class="menu-bar flex-box col-16-16">
-        <view class="col-16-5 btn {{selectIndex==1?'btn-selected':''}}" bindtap="{{selectIndex!==1?'changeSelectIndex':''}}" data-index="1" style="width: 170rpx;">
-          {{date}}
+        <view class="col-16-2 btn {{selectIndex==1?'btn-selected':''}}" bindtap="{{selectIndex!==1?'changeSelectIndex':''}}" data-index="1" style="width: 70rpx;">
+          分时
         </view>
         <view class="col-16-2 btn {{selectIndex==2?'btn-selected':''}}" bindtap="{{selectIndex!==2?'changeSelectIndex':''}}" data-index="2" style="width: 70rpx;">
           日K
@@ -161,7 +161,7 @@
         <data-bank class="{{sideSelect==2?'':'hide'}}"></data-bank>
       </view>
       <view class="right-bottom">
-        <agent-detail rightBottomHei="{{rightBottomHei}}" pcp="{{stockPcp}}" agentData="{{agentDetail}}"></agent-detail>
+        <agent-detail height="160" pcp="{{stockPcp}}" agentData="{{agentDetail}}"></agent-detail>
       </view>
     </view>
   </view>

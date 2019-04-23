@@ -36,7 +36,7 @@ Page({
           subscriberPhone: this.data.tel,
         },
         header: {
-          "Content-Type": "application/x-www-form-urlencoded"
+          "Content-Type": "application/json"
         },
         success(res) {    
           console.log(res)
@@ -64,7 +64,7 @@ Page({
       method:'POST',
       data: fgData,
       header: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/json"
       },
       success: (res) =>{
         //console.log(res)

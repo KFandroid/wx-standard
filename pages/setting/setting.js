@@ -339,6 +339,11 @@ Page({
     this.popup.hidePopup();
     let customStockTable = this.data.customStockTable
     let temp = this.data.customStockTable[this.data.selector[this.data.selectedId].name]
+    if (temp.length >= 30) {
+      wx.showToast({
+        title: '自选股数目要小于30个！',
+      })
+    }
     if (temp && temp.indexOf(this.data.stockInfo.stockCode) > -1) {
       wx.showToast({
         title: '已在自选股列表中！',

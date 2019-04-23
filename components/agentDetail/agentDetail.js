@@ -8,14 +8,17 @@ Component({
       type: Array,
       value: [],
       observer(newData) {
-        for (let i = 0; i < newData.length; i++) {
-          newData[i].time = newData[i].time.substring(8, 10) + ':' + newData[i].time.substring(10, 12)
-        }
-        this.setData({
-          data: newData.slice(-this.data.index)
-        })
+        this.processData()
       }
     }, 
+    height: {
+      type: Number,
+      value: 160,
+      oberver(newData) {
+        
+        this.processData()
+      }
+    },
     pcp: {
       type: Number,
       value: 0,
@@ -59,6 +62,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    processData() {
+      let number = Math.floor( this.data.height / 18)
+        let data = this.data.agentData
+        for (let i = 0; i < data.length; i++) {
+          data[i].time = data[i].time.substring(8, 10) + ':' + data[i].time.substring(10, 12)
+        }
+        this.setData({
+          data: data.slice(-number)
+        })
+    }
   }
 })

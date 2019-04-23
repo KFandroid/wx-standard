@@ -75,6 +75,7 @@ Page({
           id: +(+new Date() + "").substring(0, 10),
         })
         let customStockTable = wx.getStorageSync('customStockTable')
+        console.log('customStockTable', customStockTable, 'customStockTable name is', this.data.customName)
         customStockTable[this.data.customName] = []
         wx.setStorageSync('customStockTable', customStockTable)
         this.data.counts.push(0)
@@ -125,6 +126,25 @@ Page({
       blocklists: temp,
       customName: '',
       counts: this.data.counts
+    })
+  },
+  upToTop(e) {
+    let temp = wx.getStorageSync('customStockClass')
+    let name = ''
+    for (let i = 0; i < temp.length; i++) {
+      if (i == e.currentTarget.dataset.index) {
+        name = temp[i].name
+        let data = temp.splice(i, 1)
+        
+        temp.splice(1, 0, data[0])
+      }
+    }
+    
+    wx.setStorageSync('customStockClass', temp)
+    this.data.counts.splice(e.currentTarget.dataset.index, 1)
+    this.data.counts.splice(e.currentTarget.dataset.index, 1)
+    this.setData({
+      blocklists: temp,
     })
   },
   openEditPop(e) {
