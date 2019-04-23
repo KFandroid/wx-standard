@@ -5,7 +5,6 @@
 .indexpanel{
     display:flex;
     flex-wrap:nowrap;
-    margin:0 10px;
 }
 .index_detail{
     flex:1;

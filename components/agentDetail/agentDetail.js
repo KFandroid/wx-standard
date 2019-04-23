@@ -25,6 +25,25 @@ Component({
       observer(newData) {
         
       }
+    },
+    rightBottomHei :{
+      type: Number,
+      value: 0,
+      observer(newData) {
+        let height = newData;
+
+        const query = wx.createSelectorQuery().in(this)
+        query.select('.row').boundingClientRect(function (res) {
+          res.top
+        })
+        query.exec((res) => {
+          this.setData({
+            index: parseInt(height/res[0].height)
+          })
+          
+        })
+        
+      }
     }
   },
 
@@ -32,7 +51,11 @@ Component({
    * 组件的初始数据
    */
   data: {
-    data: []
+    data: [],
+    rowHeight: 0,
+    listHeight : 0,
+    index: 8
+    
   },
 
   /**

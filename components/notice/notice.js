@@ -39,6 +39,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    leftKuo: '<',
     thisPage: 1,
     currentPage: 1,
     totalPage: 1,

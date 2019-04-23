@@ -9,9 +9,9 @@
   }
   var isClose = function(open) {
     if (open) {
-      return ">>"
+      return "关"
     } else {
-      return "<<"
+      return "开"
     }
   }
   var upIcon  = function(down) {
@@ -75,7 +75,7 @@
   module.exports.radioIsSelected = radioIsSelected;
 </wxs>
 <!-- {{getAllStatic==true?'':'transparent'}}" -->
-<view class="container" >
+<view class="container">
   <view class="header col-16-16 stockInfo">
     <stock-info stock-info="{{stockInfo}}"></stock-info>
   </view>
@@ -97,7 +97,7 @@
         <view class="col-16-2 btn {{selectIndex==4?'btn-selected':''}}" bindtap="{{selectIndex!==4?'changeSelectIndex':''}}" data-index="4" style="width: 70rpx;">
           30分
         </view>
-        <view class="col-16-1 btn" style="flex-grow: 1;"></view>
+        <view class="col-16-1 btn right-border" style="flex-grow: 1;"></view>
         <!-- <view class="col-16-1 btn" style="width: 35rpx;">选</view> -->
         <view class="col-16-2 btn" style="width: 70rpx; border:none;" bindtap="hideDeal">
           {{m1.isClose(showDeal)}}
@@ -168,7 +168,7 @@
   <view class="main-view flex-box col-16-16 under-view">
     <view class="left col-24-16">
       <view class="menu-bar flex-box col-16-16" style="border-top:none;justify-content:flex-start;">
-        <view class="btn" style='width:160rpx;color:#fff;background-color:gray;'>
+        <view class="btn" style='width:160rpx;color:#868686;background-color:#363636;'>
           项目：{{bottomTab[bottomIndex - 1].name}}
         </view>
         <!-- 盘口 -->

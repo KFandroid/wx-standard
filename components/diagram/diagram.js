@@ -3744,7 +3744,7 @@ Component({
         
       }
 
-      ctx.setStrokeStyle('blue')
+      ctx.setStrokeStyle('#ff9900')
       ctx.setLineDash([0, 0], 0)
       ctx.stroke()
       ctx.closePath()
