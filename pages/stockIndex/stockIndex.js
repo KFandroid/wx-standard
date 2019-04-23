@@ -2084,8 +2084,10 @@ Page({
       res.top
     })
     query.exec((res) => {
-      underViewHeight = underViewHeight - res[4].height - res[5].height - 51
-      
+      underViewHeight = underViewHeight - res[4].height - res[5].height - 52
+      if(sysInfo.windowHeight > 850) {
+        underViewHeight -= 30
+      }
       this.setData({
         underViewHeight,
       })

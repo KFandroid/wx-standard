@@ -49,15 +49,35 @@ Page({
     app.globalData.stockList = app.globalData.a105.data
     app.globalData.currentPage = 'index'
     storage.deleteFile(101)
-    let indexSearchHeight = sysInfo.windowHeight - 120 - 200
-    if(sysInfo.windowHeight > 800) {
-      indexSearchHeight -= 20
-    }
-    
-    
-    this.setData({
-      indexSearchHeight,
+    let indexSearchHeight
+    const query = wx.createSelectorQuery().in(this)
+    query.select('.search-btn').boundingClientRect(function (res) {
+      res.top
     })
+    query.select('.index-panel').boundingClientRect(function (res) {
+      res.top
+    })
+    query.select('.custom-stock').boundingClientRect(function (res) {
+      res.top
+    })
+    query.exec((res) => {
+      indexSearchHeight = sysInfo.windowHeight - res[0].height - res[1].height - res[2].height 
+      this.setData({
+        indexSearchHeight,
+      })
+    })
+    // console.log('window height is', sysInfo.windowHeight)
+    // if (sysInfo.windowHeight > 780) {
+    //   indexSearchHeight -= 16
+    // }
+    // if(sysInfo.windowHeight > 800) {
+    //   indexSearchHeight -= 4
+    // }
+    // if (sysInfo.windowHeight > 850) {
+    //   indexSearchHeight -= 56
+    // }
+    
+    
     // storage.addFile(Object.assign({ctx: this}, fileList.file101))
   },
 
