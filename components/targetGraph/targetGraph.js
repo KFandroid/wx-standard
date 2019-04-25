@@ -111,7 +111,6 @@ Component({
       type: Number,
       value: 300,
       observer(newData){
-        
         let graphCount = Math.floor(newData / (60 + 19))
         if(graphCount > 4) {
           graphCount = 4
@@ -448,6 +447,11 @@ Component({
       }
       let graphCount = this.data.graphCount
       let barGraphHeight = (this.data.height - graphCount * 19 - 16)/ graphCount
+
+      const sysInfo = wx.getSystemInfoSync()
+        if(sysInfo.windowHeight > 850) {
+          barGraphHeight -= 17
+        }
       this.setData({
         barGraphHeight,
         graphCount
