@@ -679,7 +679,7 @@ Component({
       ctx.lineTo(this.data.crosshair.x, this.data.yRange[1])
       // ctx.moveTo(0, this.data.crosshair.y)
       // ctx.lineTo(this.properties.width, this.data.crosshair.y)
-      ctx.setStrokeStyle('black')
+      ctx.setStrokeStyle('#6f6f6f')  //black
       ctx.stroke()
       this.data.context.closePath()
     },

@@ -1,14 +1,14 @@
 <!--pages/index/index.wxml-->
 <view class="index">
 <!-- <view style="height: 100px;width: 100px; border:2px solid red;" bindtap="changePageSrc"></view> -->
-  <view class="search-btn clear">
+  <view class="search-btn clear" id="search">
     <navigator url="../../pages/search/search" class="btn sea_btn" bindtap="viewTap" >
       <image src="../../utils/images/search.png" style='max-width: 50rpx; height: 34rpx;' mode="aspectFit"></image>
       <text>请输入股票代码/名称/简拼</text>
     </navigator>
     <image class="personal" src="../../utils/images/me.png" mode="aspectFit"/>
   </view>
-    <view style="padding:0 20rpx">
+    <view style="padding:0 20rpx" id="indexPanel">
       <component-indexPanel></component-indexPanel>
     </view>
   <!-- <component-indexSearch t101="{{t101}}" 
@@ -22,8 +22,9 @@
     bind:dateChange="dateChange" 
    bind:getChild="getT102"
    ></component-indexSearch> -->
-   <view style="height:{{indexSearchHeight}}px"></view>
-  <view class="custom-stock">
+   <view style="height:{{indexSearchHeight}}px" id="yidong">
+   <component-yidong proInfo="{{proInfo}}" iconInfo="{{iconInfo}}" indexSearchHeight="{{indexSearchHeight}}" chapterDetail="{{chapterDetail}}"></component-yidong></view>
+  <view class="custom-stock" id="custom-stock">
   <view class="form">
     <view bind:tap="selectBottomIndex" class="title  {{bottomIndex == '1' ? 'selected': ''}}" data-index="1">自选</view>
     <view bind:tap="selectBottomIndex" class="title {{bottomIndex == '2' ? 'selected': ''}}" data-index="2">监控</view>

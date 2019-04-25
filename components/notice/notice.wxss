@@ -48,4 +48,7 @@
   
   .pageBtn {
     /*color: rgb(90, 90, 230);*/
+    width:50rpx;
+    height:50rpx;
+
   }

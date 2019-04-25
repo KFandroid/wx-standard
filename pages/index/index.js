@@ -21,14 +21,49 @@ Page({
     t107: null,
     bottomIndex: '1',
     pagesrc: '',
-    indexSearchHeight: 300
+    indexSearchHeight: 300,
+    proInfo:null,
+    funcInfo:null,
+    iconInfo:null,
+    picInfo:null,
+    chapterDetail:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    //模拟异动xx篇 数据
+    var proInfo=require('../../utils/moce/B1.js');
+    var funcInfo= require('../../utils/moce/B2.js')
+    var iconInfo= require('../../utils/moce/B3.js');
+    var picInfo= require('../../utils/moce/B4.js');
+    
+    
+    var sum = [], kvIndex = {};  //sum 为合并后的对象
+    for (var i = 0; i < proInfo.data.length; i++) {
+        for (var j = 0; j < iconInfo.data.length; j++) {
+            if (proInfo.data[i].pid == iconInfo.data[j].pid) {
+                var item
+                if (kvIndex[proInfo.data[i].pid] == undefined) {
+                    kvIndex[proInfo.data[i].pid] = sum.length;
+                    item = {};
+                    for (var attr in proInfo.data[i]) item[attr] = proInfo.data[i][attr];
+                    sum[kvIndex[proInfo.data[i].pid]] = item;
+ 
+                } else item = sum[kvIndex[proInfo.data[i].id]];
+                for (var attr in iconInfo.data[j]) item[attr] = iconInfo.data[j][attr];
+            }
+        }
+    }
+    
+    this.setData({
+      proInfo:proInfo.data,
+      funcInfo:funcInfo.data,
+      iconInfo:iconInfo.data,
+      picInfo:picInfo.data,
+      chapterDetail:sum
+    })
     
     
     // storage.addFile(Object.assign({ctx: this}, fileList.file101))
@@ -45,19 +80,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    
     const sysInfo = wx.getSystemInfoSync()
     app.globalData.stockList = app.globalData.a105.data
     app.globalData.currentPage = 'index'
     storage.deleteFile(101)
-    let indexSearchHeight = sysInfo.windowHeight - 120 - 200
+
+    
+    var query = wx.createSelectorQuery().in(this);
+    //选择id
+    query.select('#search').boundingClientRect()
+    query.select('#indexPanel').boundingClientRect()
+    query.select('#custom-stock').boundingClientRect()
+    query.exec((res) => {
+      this.setData({
+        indexSearchHeight:sysInfo.windowHeight-res[0].height -res[1].height - res[2].height
+      })
+    })
+
+    /* let indexSearchHeight = sysInfo.windowHeight - 120 - 200
     if(sysInfo.windowHeight > 800) {
       indexSearchHeight -= 20
     }
-    
-    
+    console.log('容器高度',indexSearchHeight)
+    debugger
     this.setData({
       indexSearchHeight,
-    })
+    }) */
     // storage.addFile(Object.assign({ctx: this}, fileList.file101))
   },
 
@@ -91,7 +140,7 @@ Page({
     storage.deleteFile(107)
     storage.addFile({
       type: '107',
-      intervalTime: 10000,
+      intervalTime: 2000,
       changeCb: (data) => {
         this.setData({
           t107: data
@@ -107,7 +156,7 @@ Page({
     storage.deleteFile(103)
     storage.addFile({
       type: '103',
-      intervalTime: 7000,
+      intervalTime: 2000,
       changeCb: (data) => {
         this.setData({
           t103: data
@@ -138,7 +187,7 @@ Page({
     storage.deleteFile(101)
     storage.addFile({
       type: '101',
-      intervalTime: 6000,
+      intervalTime: 2000,
       changeCb: (data) => {
         this.setData({
           t101: data
@@ -183,7 +232,7 @@ Page({
     storage.deleteFile(107)
     storage.addFile({
       type: '107',
-      intervalTime: 10000,
+      intervalTime: 2000,
       changeCb: (data) => {
         this.setData({
           t107: data

@@ -305,7 +305,7 @@ flagItem(e){
   let item = e.currentTarget.dataset.item
   console.log(item)
   if(!this.data.trangStatus){
-    debugger
+    
     this.setData({
       trangStatus:true,
       trangDirction:true,
@@ -315,12 +315,14 @@ flagItem(e){
   }else{
     
     if(this.data.lastFlag==item){ //只在当前字段进行排序
-      debugger
+  
       this.setData({
         trangDirction:!this.data.trangDirction,
+        allData:this.data.allData.reverse()
       })
+      console.log(this.data.allData)
     }else{      //切换到其他字段排序
-      debugger
+     
       this.setData({
         itemsFlag:item,
         lastFlag: item,
@@ -335,7 +337,6 @@ flagItem(e){
         
       }) */
       let data = this.data.allData
-     
       this.sortList(item,data)
     },
     //自选股排序判断
@@ -346,8 +347,20 @@ flagItem(e){
           return value1 - value2;
        }
     },
-    sortList(items,data){
+    dataSort(data,field){
       
+      console.log('字段',field)
+     if(this.data.trangDirction===true){
+      this.setData({
+        allData:data.sort(this.compare(field))
+      })
+      } else{
+        this.setData({
+          allData:data.sort(this.compare(field)).reverse()
+        })
+      }
+    },
+    sortList(items,data){
       switch(items)
           {
             case 'gp':
@@ -356,29 +369,25 @@ flagItem(e){
           
             case 'dm':
             console.log(items)
-            this.setData({
-              allData:data.sort(this.compare('stockCode'))
-            })
+            this.dataSort(data,'stockCode')
+            
             break;
           
             case 'zx':
             console.log(items)
-              this.setData({
-                allData:data.sort(this.compare('cjj'))
-              })
+            this.dataSort(data,'cjj')
+              
             break;
           
             case 'zf':
             console.log(items)
-            this.setData({
-              allData:data.sort(this.compare('zf'))
-            })
+            this.dataSort(data,'zf')
+            
             break;
 
             case 'cjl':
-            this.setData({
-              allData:data.sort(this.compare('oriCjl'))
-            })
+            this.dataSort(data,'oriCjl')
+            
             break;
     }
   }

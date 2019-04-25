@@ -3434,7 +3434,7 @@ Component({
       // ctx.moveTo(0, this.data.crosshair.y)
       // ctx.lineTo(this.data.xRange[1], this.data.crosshair.y)
       ctx.closePath()
-      ctx.setStrokeStyle('black')
+      ctx.setStrokeStyle('#6f6f6f')
       ctx.stroke()
     },
     tranferX2Index(x) {
@@ -3617,7 +3617,7 @@ Component({
     },
     drawGrid(ctx) {
       let timeArr = this.data.xGrid
-      ctx.setStrokeStyle('rgba(186, 186, 186, 1)')
+      ctx.setStrokeStyle('#929292')  //rgba(186, 186, 186, 1)
       for (let i = 0, length = timeArr.length; i < length; i++) {
         this.drawTimeLine(timeArr[i], ctx)
       }
@@ -3656,12 +3656,12 @@ Component({
           text:parseFloat(this.data.yDomain[1]).toFixed(2),
           x: xEnd,
           y:fontSize,
-          color: 'gray'
+          color: 'red'
         }, {
           text:parseFloat(this.data.yDomain[0]).toFixed(2),
           x: xEnd,
           y: yEnd - fontSize/3,
-          color: 'gray'
+          color: 'green'
         }]
       } else {
         TextInfo = [{

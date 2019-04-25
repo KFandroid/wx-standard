@@ -24,5 +24,7 @@
     "component-monitor": "../../components/monitor/monitor",
     "component-optionalStock": "../../components/optionalStock/optionalStock",
     "stock-notice" : "../../components/notice/notice"
-  }
+  },
+  "navigationBarBackgroundColor":"#1b1b1b",
+  "navigationBarTextStyle": "white"
 }

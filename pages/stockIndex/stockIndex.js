@@ -471,7 +471,7 @@ Page({
           })
         },
         ctx: this,
-        intervalTime: 10000,
+        intervalTime: 2000,
         createKey: () => {
           let val = this.createKeyStr3(110, '000000', this.data.stockCode, true)
           return val
@@ -479,7 +479,7 @@ Page({
       })
       storage.addFile({
         type: '122',
-        intervalTime: 5000,
+        intervalTime: 2000,
         ctx: this,
         changeCb: (data) => {
           for (let j = 0; j < data.data.length; j++) {
@@ -674,7 +674,7 @@ Page({
         })
         storage.addFile({
           type: '128',
-          intervalTime: 9000,
+          intervalTime: 2000,
           ctx: this,
           changeCb: (data) => {
             // 处理成当天项目，并传一个标识过去
@@ -694,7 +694,7 @@ Page({
       } else {
         storage.addFile({
           type: '131',
-          intervalTime: 10000,
+          intervalTime: 2000,
           ctx: this,
           changeCb: (data) => {
             // 处理成当天项目，并传一个标识过去
@@ -755,7 +755,7 @@ Page({
         storage.addFile({
           type: '112',
           ctx: this,
-          intervalTime: 10000,
+          intervalTime: 2000,
           changeCb: (data) => {
             if (!data.data.length) {
               return
@@ -862,7 +862,7 @@ Page({
         storage.addFile({
           type: '114',
           ctx: this,
-          intervalTime: 5000,
+          intervalTime: 2000,
           changeCb: (data) => {
             this.setData({
               kLinesDataCurrent: data
@@ -907,7 +907,7 @@ Page({
         })
         storage.addFile({
           type: '115',
-          intervalTime: 6000,
+          intervalTime: 2000,
           ctx: this,
           changeCb: (data) => {
 
@@ -973,7 +973,7 @@ Page({
         storage.addFile({
           type: '119',
           ctx: this,
-          intervalTime: 7000,
+          intervalTime: 2000,
           changeCb: (data) => {
             let kLinesDataCurrent = JSON.parse(JSON.stringify(data))
             kLinesDataCurrent.data = this.data.kLinesDataCurrent.data
@@ -1036,7 +1036,7 @@ Page({
         storage.addFile({
           type: '124',
           ctx: this,
-          intervalTime: 8000,
+          intervalTime: 2000,
           changeCb: (data) => {
             this.setData({
               kLinesDataCurrent: data
@@ -1261,7 +1261,7 @@ Page({
     let IntervalFileList = [{
       type: '101',
       ctx: this,
-      intervalTime: 9000,
+      intervalTime: 2000,
       changeCb: (data) => {
         this.setData({
           t101: data
@@ -1289,7 +1289,7 @@ Page({
           stockInfo: Object.assign({}, this.data.stockInfo, stockInfo)
         })
       },
-      intervalTime: 10000,
+      intervalTime: 2000,
       createKey: () => {
         const TYPE = 108
         let val = this.createKeyStr3(108, '000000', this.data.stockCode, true)
@@ -1304,7 +1304,7 @@ Page({
           agentInfo: data
         })
       },
-      intervalTime: 5000,
+      intervalTime: 2000,
       createKey: () => {
         let val = this.createKeyStr3(110, '000000', this.data.stockCode, true)
         return val
@@ -1312,7 +1312,7 @@ Page({
     }, {
       type: '122',
       ctx: this,
-      intervalTime: 5000,
+      intervalTime: 2000,
       changeCb: (data) => {
         for (let j = 0; j < data.data.length; j++) {
           let flag = true
@@ -1341,7 +1341,7 @@ Page({
     }, {
       type: '114',
       ctx: this,
-      intervalTime: 7000,
+      intervalTime: 2000,
       changeCb: (data) => {
 
         this.setData({
@@ -1355,7 +1355,7 @@ Page({
     }, {
       type: '126',
       ctx: this,
-      intervalTime: 8000,
+      intervalTime: 2000,
       changeCb: (data) => {
         // let oldData = wx.getStorageSync('k126000000000000000000000000000')
         let oldData = {
@@ -1488,7 +1488,7 @@ Page({
       storage.addFile({
         type: '128',
         ctx: this,
-        intervalTime: 9000,
+        intervalTime: 2000,
         changeCb: function(data) {
           // 处理成当天项目，并传一个标识过去
           // this.setData({
@@ -1512,7 +1512,7 @@ Page({
       storage.addFile({
         type: '131',
         ctx: this,
-        intervalTime: 10000,
+        intervalTime: 2000,
         changeCb: function(data){
           // 处理成当天项目，并传一个标识过去
           // this.setData({
@@ -1625,7 +1625,7 @@ Page({
       })
       storage.addFile({
         type: '128',
-        intervalTime: 5000,
+        intervalTime: 2000,
         changeCb: function(data) {
           // 处理成当天项目，并传一个标识过去
           // this.setData({
@@ -1649,7 +1649,7 @@ Page({
       }
       storage.addFile({
         type: '131',
-        intervalTime: 6000,
+        intervalTime: 2000,
         changeCb: function(data) {
           // 处理成当天项目，并传一个标识过去
           // this.setData({
@@ -1712,7 +1712,7 @@ Page({
         })
         storage.addFile({
           type: '112',
-          intervalTime: 10000,
+          intervalTime: 2000,
           ctx: this,
           changeCb: function(data) {
             let averagePrice = 0
@@ -1815,7 +1815,7 @@ Page({
         storage.addFile({
           type: '114',
           ctx: this,
-          intervalTime: 10000,
+          intervalTime: 2000,
           changeCb: (data) => {
             this.setData({
               kLinesDataCurrent: data
@@ -1862,7 +1862,7 @@ Page({
         storage.addFile({
           type: '115',
           ctx: this,
-          intervalTime: 10000,
+          intervalTime: 2000,
           changeCb: (data) => {
             let kLinesDataCurrent = JSON.parse(JSON.stringify(data))
             kLinesDataCurrent.data = this.data.kLinesDataCurrent.data
@@ -1927,7 +1927,7 @@ Page({
         storage.addFile({
           type: '119',
           ctx: this,
-          intervalTime: 10000,
+          intervalTime: 2000,
           changeCb: (data) => {
             let kLinesDataCurrent = JSON.parse(JSON.stringify(data))
             kLinesDataCurrent.data = this.data.kLinesDataCurrent.data
@@ -1990,7 +1990,7 @@ Page({
         storage.addFile({
           type: '124',
           ctx: this,
-          intervalTime: 10000,
+          intervalTime: 2000,
           changeCb: (data) => {
             this.setData({
               kLinesDataCurrent: data
@@ -2451,7 +2451,7 @@ Page({
       storage.addFile({
         type: '128',
         ctx: this,
-        intervalTime: 11000,
+        intervalTime: 2000,
         changeCb: (data) => {
           // 处理成当天项目，并传一个标识过去
           this.setData({
@@ -2468,7 +2468,7 @@ Page({
       storage.addFile({
         type: '131',
         ctx: this,
-        intervalTime: 12000,
+        intervalTime: 2000,
         changeCb: (data) => {
           this.setData({
             ydStockCurrentData: deal2StockData(data.data)
@@ -2653,7 +2653,7 @@ Page({
     storage.addFile({
       type: '101',
       ctx: this,
-      intervalTime: 6000,
+      intervalTime: 2000,
       changeCb: (data) => {
         this.setData({
           t101: data
@@ -2673,7 +2673,7 @@ Page({
     storage.addFile({
       type: '102',
       ctx: this,
-      intervalTime: 14000,
+      intervalTime: 2000,
       changeCb: (data) => {
         this.setData({
           t102: data
@@ -2752,7 +2752,7 @@ Page({
     storage.addFile({
       type: '103',
       ctx: this,
-      intervalTime: 7000,
+      intervalTime: 2000,
       changeCb: (data) => {
         this.setData({
           t103: data
@@ -2803,7 +2803,7 @@ Page({
     storage.addFile({
       type: '126',
       ctx: this,
-      intervalTime: 13000,
+      intervalTime: 2000,
       changeCb: (data) => {
 
         this.setData({
@@ -3043,7 +3043,7 @@ Page({
     storage.addFile({
       type: '107',
       ctx: this,
-      intervalTime: 10000,
+      intervalTime: 2000,
       changeCb: (data) => {
         this.setData({
           t107: data

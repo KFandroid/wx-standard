@@ -1,0 +1,27 @@
+<!--components/skill/skill.wxml-->
+<view class="skill-cont">
+    <view class="skill-form" id="skill-form">
+        <view class="skill-title {{titleIndex==='1'?'selected':''}}" data-index="1" bind:tap="getIndex">
+            技术
+        </view>
+        <view class="skill-title {{titleIndex==='2'?'selected':''}}" data-index="2" bindtap="getIndex">
+            排行
+        </view>
+    </view>
+
+    <scroll-view wx:if="{{titleIndex==='1'}}" class="yidongChapter" scroll-y="true" style="height:{{scrollViewHeight}}px;">
+        <view class="chapter" wx:for="{{chapterDetail}}" wx:key="{{item.sort}}">
+            <view class="chapter-icon">
+                <image class="" src="{{item.url}}" mode="aspectFitx" style=""/>
+                  
+            </view>
+            <view class="chapter-title">
+                {{item.pname}}
+            </view>
+        </view>
+         
+    </scroll-view>
+    <view wx:elif="{{titleIndex==='2'}}">
+        暂无
+    </view>
+</view>

@@ -9,20 +9,20 @@
       </view>
       <view class="flex-cell col-16-2 {{itemsFlag==='dm'?'flex-start':'flex-between'}}" bindtap="flagItem" data-item="dm">
         <text class="text">代码</text>
-        <image wx:if="{{itemsFlag === 'dm'}}" class="" src="../../utils/images/trang-up.png" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;'/>
+        <image wx:if="{{itemsFlag === 'dm'}}" class="" src="../../utils/images/{{trangDirction===true ?'trang-up.png':'trang-down.png'}}" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;'/>
       </view>
       <view class="flex-cell flex-row col-16-3  {{itemsFlag==='zx'?'flex-between':'flex-2-row'}}" bindtap="flagItem" data-item="zx">
         <text class="text">最新</text>
-        <image wx:if="{{itemsFlag === 'zx'}}" class="" src="../../utils/images/trang-up.png" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;'/>
+        <image wx:if="{{itemsFlag === 'zx'}}" class="" src="../../utils/images/{{trangDirction===true ?'trang-up.png':'trang-down.png'}}" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;'/>
         
       </view>
       <view class="flex-cell flex-row col-16-4 " bindtap="flagItem" data-item="zf" >
       <text class="text">涨幅</text>
-      <image wx:if="{{itemsFlag === 'zf'}}" class="" src="../../utils/images/trang-up.png" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;'/>
+      <image wx:if="{{itemsFlag === 'zf'}}" class="" src="../../utils/images/{{trangDirction===true ?'trang-up.png':'trang-down.png'}}" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;'/>
       </view>
       <view class="flex-cell flex-row col-16-3  {{itemsFlag==='cjl'?'flex-between':'flex-2-row'}} " bindtap="flagItem" data-item="cjl">
         <text class="text">成交量</text>
-        <image wx:if="{{itemsFlag === 'cjl'}}" class="" src="../../utils/images/trang-up.png" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;' />
+        <image wx:if="{{itemsFlag === 'cjl'}}" class="" src="../../utils/images/{{trangDirction===true ?'trang-up.png':'trang-down.png'}}" mode="aspectFit" style='max-width: 40rpx; height: 30rpx;' /><!--{{trangDirction===true ?'trang-up.png':'trang-down.png'}}-->
       </view>
       <view class="flex-cell flex-row col-16-1 flex-2-row">
       </view>
@@ -65,7 +65,7 @@
     <view class="select-custom col-16-14">
       <view class="left-btn col-16-1" bind:tap="minusPlate">＜</view>
       <view class="plate-container col-16-14">
-        <view class="plate {{index == item.index ? 'selected' : ''}}" wx:for-index="idx" wx:for="{{plate}}" bind:tap="bindPickerChange" data-index="{{item.index}}" >{{item.name}}</view>
+        <view class="plate {{index == item.index ? 'selected' : ''}}" wx:for-index="idx" wx:for="{{plate}}"   wx:key="index" bind:tap="bindPickerChange" data-index="{{item.index}}" >{{item.name}}</view>
       </view>
       <view class="right-btn col-16-1" bind:tap="addPlate">＞</view>
     </view>
