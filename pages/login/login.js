@@ -173,6 +173,7 @@ Page({
       console.log('不停login!!!')
       
       if(app.globalData.currentPage !== 'index' && app.globalData.currentPage !== 'stockIndex') {
+        app.globalData.currentPage = 'index'
         wx.navigateTo({
           url: '../index/index'
         })

@@ -188,7 +188,7 @@ Component({
       }
       
       ctx.closePath()
-      ctx.setStrokeStyle('black')
+      ctx.setStrokeStyle('#6f6f6f')
       ctx.stroke()
     },
     processData() {
@@ -227,7 +227,7 @@ Component({
       ctx.setLineDash([3, 3], 3)
       ctx.moveTo(0, this.data.yRange[1] / 2)
       ctx.lineTo(this.data.xRange[1], this.data.yRange[1] / 2)
-      ctx.setStrokeStyle('black')
+      ctx.setStrokeStyle('#6f6f6f')
       
       ctx.stroke()
       ctx.closePath()

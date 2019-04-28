@@ -684,9 +684,10 @@ Component({
       this.data.context.closePath()
     },
     drawSplitLine() {
+      
       let temp = this.data.height / 4
       for (let i = 0; i < 3; i++) {
-        this.drawLine(0, temp * (i + 1), this.data.width, temp * (i + 1), '#ddd')
+        this.drawLine(0, temp * (i + 1), this.data.width, temp * (i + 1), '#363636')  //#ddd
       }
     },
     drawSingle(x, high, y1, y2, low, color) {

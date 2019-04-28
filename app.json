@@ -20,5 +20,6 @@
     "navigationBarTitleText": "异动1.0",
     "navigationBarTextStyle": "black",
     "disableScroll": true
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

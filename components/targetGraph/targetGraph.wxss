@@ -4,6 +4,7 @@
 }
 .main-title {
     font-size: 24rpx;
+    color:#949494;
 }
 .main-title:after{/*清除浮动*/
     content: '';
@@ -26,6 +27,7 @@
     justify-content: flex-start;
     border-top: 2rpx solid gray;
     border-bottom: 2rpx dashed gray;
+    color:#949494;
 }
 .label {
     display: flex;

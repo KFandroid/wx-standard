@@ -3617,7 +3617,7 @@ Component({
     },
     drawGrid(ctx) {
       let timeArr = this.data.xGrid
-      ctx.setStrokeStyle('#929292')  //rgba(186, 186, 186, 1)
+      ctx.setStrokeStyle('#363636')  //虚线rgba(186, 186, 186, 1)
       for (let i = 0, length = timeArr.length; i < length; i++) {
         this.drawTimeLine(timeArr[i], ctx)
       }

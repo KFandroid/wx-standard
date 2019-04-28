@@ -3,31 +3,139 @@
 <!-- <view style="height: 100px;width: 100px; border:2px solid red;" bindtap="changePageSrc"></view> -->
   <view class="search-btn clear" id="search">
     <navigator url="../../pages/search/search" class="btn sea_btn" bindtap="viewTap" >
-      <image src="../../utils/images/search.png" style='max-width: 50rpx; height: 34rpx;' mode="aspectFit"></image>
-      <text>请输入股票代码/名称/简拼</text>
+      <image src="../../utils/images/search.png" style='max-width: 50rpx; height: 34rpx;float:left;' mode="aspectFit"></image>
+      <text style="float:left;">请输入股票代码/名称/简拼</text>
     </navigator>
     <image class="personal" src="../../utils/images/me.png" mode="aspectFit"/>
   </view>
     <component-indexPanel class="index-panel"></component-indexPanel>
-  <!-- <component-indexSearch t101="{{t101}}" 
-  t106="{{t106}}" 
-  t102="{{t102}}"
-  pickerDate='{{dateBottom}}'
-   bind:getK103="getK103" 
-   t103="{{t103}}"
-   scrollHeight="{{indexSearchHeight}}"
-   bind:stopGetK103="stopGetK103" bind:closeGetChild="closeGetChild"
-    bind:dateChange="dateChange" 
-   bind:getChild="getT102"
-   ></component-indexSearch> -->
-   <view style="height:{{indexSearchHeight}}px" id="yidong">
-   <component-yidong proInfo="{{proInfo}}" iconInfo="{{iconInfo}}" indexSearchHeight="{{indexSearchHeight}}" chapterDetail="{{chapterDetail}}"></component-yidong></view>
-  <view class="custom-stock" id="custom-stock">
-  <view class="form">
-    <view bind:tap="selectBottomIndex" class="title  {{bottomIndex == '1' ? 'selected': ''}}" data-index="1">自选</view>
-    <view bind:tap="selectBottomIndex" class="title {{bottomIndex == '2' ? 'selected': ''}}" data-index="2">监控</view>
-  </view>
-    <component-optionalStock scrollHeight="160"  bind:getK107="getK107" t107="{{t107}}" ></component-optionalStock>
-  </view>
-  <!-- <web-view class="{{pagesrc == '' ? 'hide': ''}}" src="{{pagesrc}}"></web-view> -->
+
+    <!--  1、首页  -->
+  <view wx:if="{{isYidong==1}}">
+        <!-- <component-indexSearch t101="{{t101}}" 
+      t106="{{t106}}" 
+      t102="{{t102}}"
+      pickerDate='{{dateBottom}}'
+      bind:getK103="getK103" 
+      t103="{{t103}}"
+      scrollHeight="{{indexSearchHeight}}"
+      bind:stopGetK103="stopGetK103" bind:closeGetChild="closeGetChild"
+        bind:dateChange="dateChange" 
+      bind:getChild="getT102"
+      ></component-indexSearch> -->
+      <view style="height:{{indexSearchHeight}}px" id="yidong">
+      <component-yidong proInfo="{{proInfo}}" iconInfo="{{iconInfo}}" indexSearchHeight="{{indexSearchHeight}}" chapterDetail="{{chapterDetail}}" bind:getYidong="onGetYidong"></component-yidong></view>
+      <view class="custom-stock" id="custom-stock">
+      <view class="form">
+        <view bind:tap="selectBottomIndex" class="title  {{bottomIndex == '1' ? 'selected': ''}}" data-index="1">自选</view>
+        <view bind:tap="selectBottomIndex" class="title {{bottomIndex == '2' ? 'selected': ''}}" data-index="2">监控</view>
+      </view>
+        <component-optionalStock scrollHeight="160"  bind:getK107="getK107" t107="{{t107}}" ></component-optionalStock>
+      </view>
+      <!-- <web-view class="{{pagesrc == '' ? 'hide': ''}}" src="{{pagesrc}}"></web-view> -->
+    </view>
+
+    <!-- 2、点击icon跳转到此 -->
+    <view  wx:if="{{isYidong==2}}" class="panelD">
+        <view class="chapterPanel" >
+            <view class="panel-cont">
+                <view class="panel panel-icon">
+                
+                    <view class="chapter-icon">
+                        <image mode="aspectFit" src="{{currentChapter.url}}" style=""/>
+                    </view>
+                    <view class="chapter-title" style="text-align:center;">
+                        {{currentChapter.pname}}
+                    </view>
+                </view>
+                <view class="panel panel-pic">
+                    <image class="" src="{{getChapterPic.url}}" mode="aspectFit" />
+                </view>
+                <view class="panel panel-des">
+                    <image class="des" src="../../utils/images/des.png" mode="aspectFit"/>
+                </view>
+            </view>
+        </view>
+        <view class="chapterContent" style="height:{{contHeight}}px">
+            <view class="chapter-bar">
+                <view class="btn {{chapterType==1?'selected':''}}" bindtap="getSelected" data-type="1">
+                    当日
+                </view>
+                <view class="btn {{chapterType==2?'selected':''}}" bindtap="getSelected" data-type="2">
+                    多日
+                </view>
+
+
+                <view class="btn poRight" bindtap="changeChapType" data-chaptype="2">
+                    关
+                </view>
+            </view>
+            <scroll-view class="chapter-list" scroll-y="true" style="height:{{contHeight-30}}px">
+                <view class="chapter-list-item" wx:if="{{currentChapterDetail.length!==0}}" wx:for="{{chapterType==1?list1:list2}}" wx:key="index" bindtap="gotoDetail" data-detail="{{item}}">
+                    <view class="list-item">
+                        <view class="list-item-icon1"></view>
+                        <view class="list-item-icon2"></view>
+                        <view class="list-item-title">
+                            {{item.name}}
+                        </view>
+                    </view>
+                    <view class="list-remark">
+                        {{item.remark}}
+                    </view>
+                </view>
+                
+                <view wx:if="{{currentChapterDetail.length==0}}" style="color:#e85c00;">
+                    暂无
+                </view>
+                
+            </scroll-view>
+        </view>
+    </view>
+
+    <block wx:if="{{isYidong==3}}">
+        <view class="chapterPanel" >
+            <view class="panel-cont" style="font-size:0;">
+                <view class="pcont panel-cont-icon" style="   padding-top:30rpx;">
+                    <view class="list-item-icon1"></view>
+                </view>
+                <view class="pcont panel-cont-det">
+                    <view class="first-col">
+                        <view class="first-col-item panel-bell">
+                            <image src="../../utils/images/bell-open.png" style="max-width:50rpx;height:100%;"/>
+                        </view>
+                        <view class="first-col-item panel-title">
+                            【{{chapter.name}}】
+                        </view>
+                        
+                              <picker
+                                class="first-col-item date-picker"
+                                mode="date"
+                                value="{{date}}"
+                                start="2015-09-01"
+                                end="2017-09-01"
+                                bindchange="bindDateChange"
+                            >
+                                <view >
+                                {{date}}
+                                </view>
+                            </picker>
+                        
+                    </view>
+                    <view class="second-col">
+                        <view class="panel-remark">
+                            {{chapter.remark}}
+                        </view>
+                    </view>
+                </view>
+                
+                <view class="pcont panel-closed" style="font-size:38rpx;color:red;" bindtap="changeChapType">
+                    关
+                </view>
+            </view>
+        </view>
+        <view class="chapterContent" style="height:{{contHeight}}px">
+
+        </view>
+    </block>
+      
 </view>

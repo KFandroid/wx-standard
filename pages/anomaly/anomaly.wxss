@@ -1,1 +1,134 @@
 /* pages/anomaly/anomaly.wxss */
+.index {
+    overflow: hidden;
+    background-color: #1b1b1b;
+}
+.clear{
+    clear:both;
+}
+.search-btn{
+    height:40rpx;
+    padding:20rpx 0 20rpx 20rpx;
+}
+.sea_btn{
+    width:70%;
+    box-sizing:border-box;
+    border:2rpx solid gray;
+    border-radius:18rpx;
+    font-size: 13px;
+    /*background-color: #f0f1f1;*/
+    float:left;
+    color:#949494;
+    /*height:40rpx;*/
+    clear:both;
+}
+.sea_btn::after{
+  display: block;
+  height: 0;
+  clear: both;
+  content: '' ;
+}
+.personal{
+    height:40rpx;
+    display:flex;
+    flex:1;
+    max-width:50rpx;
+    float:right;
+}
+.chapterPanel{
+    height:240rpx;
+
+    width:95%;
+    margin:10rpx auto;
+    border:2rpx solid #e85c00;
+    padding:10rpx;
+    box-sizing:border-box;
+    color:#a1a1a1;
+    font-size:24rpx;
+}
+
+
+.panel-cont{
+   width:100%;
+   height: 100%;
+}
+.panel{
+    float:left;
+    height:100%;
+}
+.panel-icon{
+    width:20%;
+}
+.chapter-icon{
+    height:90rpx;
+    width: 90rpx;
+    margin: 0 auto;
+    padding-top:20px;
+
+}
+.chapter-icon image{
+    width:100%;
+    height:100%;
+    margin:0 auto;
+    display:block;
+border-radius:50%;
+
+}
+.panel-pic{
+    width:70%;
+}
+.panel-pic image{
+    width:100%;
+    height: 100%;
+    display:block;
+    margin:0 auto;
+
+}
+.panel-des{
+    width:10%;
+}
+.des{
+    width:100%;
+height:100%;
+display:block;
+margin:0 auto;
+
+}
+
+.chapter-bar{
+    border-bottom:2rpx solid #434343;
+    font-size:28rpx;
+    color:#949494;
+    line-height:60rpx;
+
+}
+.btn{
+    display:inline-block;
+    padding:0 20rpx;
+}
+.chapter-bar .selected{
+    border-bottom:3rpx solid #e85c00;
+    color:#e85c00;
+
+}
+.list-item{
+    width:100%;
+    line-height:50rpx;
+}
+.list-item-icon1,.list-item-icon2,.list-item-title{
+    display:inline-block;
+}
+.list-item-icon1{
+    width: 20rpx;
+    height:20rpx;
+    background-color:#e85c00;
+    margin-right:20rpx;
+}
+.chapter-list-item{
+    color:#949494;
+    font-size:28rpx;
+    border-bottom:2rpx solid #434343;
+}
+.list-remark{
+    padding:20rpx 0 10rpx 40rpx;
+}

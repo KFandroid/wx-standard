@@ -3,7 +3,7 @@
     color:#ff6633;
 }
 .skill-form{
-    height:50rpx;
+    height:52rpx;
     font-size:24rpx;
     line-height:50rpx;
     border-bottom:2rpx solid #434343;

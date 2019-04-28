@@ -1375,7 +1375,6 @@ import {
       temp.mgwfp = (temp.wfplr / temp.zgb).toFixed(2)
       data.data.push(temp)
     }
-    
     return data
   }
   

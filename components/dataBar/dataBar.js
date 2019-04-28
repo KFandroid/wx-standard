@@ -185,7 +185,7 @@ Component({
         ctx.lineTo(this.data.xRange[1], this.data.crosshair.y)
       }
       ctx.closePath()
-      ctx.setStrokeStyle('black')
+      ctx.setStrokeStyle('#6f6f6f')
       ctx.stroke()
     },
     processData: function() {
@@ -219,7 +219,7 @@ Component({
       ctx.setLineDash([3, 3], 3)
       ctx.moveTo(x, 0)
       ctx.lineTo(x, this.data.height)
-      ctx.setStrokeStyle('black')
+      ctx.setStrokeStyle('#6f6f6f')
       ctx.stroke()
       ctx.closePath()
       ctx.setLineDash([0, 0], 0)
@@ -240,7 +240,7 @@ Component({
       ctx.setLineDash([3, 3], 3)
       ctx.moveTo(0, this.data.yRange[1] / 2)
       ctx.lineTo(this.data.xRange[1], this.data.yRange[1] / 2)
-      ctx.setStrokeStyle('black')
+      ctx.setStrokeStyle('#6f6f6f')
       
       ctx.stroke()
       ctx.closePath()

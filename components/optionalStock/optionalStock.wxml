@@ -70,6 +70,6 @@
       <view class="right-btn col-16-1" bind:tap="addPlate">＞</view>
     </view>
     <view class="custom-setting col-16-2" bindtap="toEditCustom">
-       <image src="../../utils/images/setting.png" style='max-width: 76rpx; height: 50rpx;' mode="aspectFit"></image>
+       <image src="../../utils/images/setting.png" style='max-width: 56rpx; height: 36rpx;margin-left:20rpx;' mode="aspectFit"></image>
     </view>
   </view>

@@ -11,7 +11,7 @@
     box-sizing:border-box;
     border:2rpx solid gray;
     border-radius:18rpx;
-    font-size: 13px;
+    font-size: 26rpx;
     /*background-color: #f0f1f1;*/
     float:left;
     color:#949494;
@@ -81,4 +81,154 @@
     flex:1;
     max-width:50rpx;
     float:right;
+}
+
+
+.chapterPanel{
+    height:240rpx;
+
+    width:95%;
+    margin:10rpx auto;
+    border:2rpx solid #e85c00;
+    
+    box-sizing:border-box;
+    color:#a1a1a1;
+    font-size:24rpx;
+}
+
+
+.panel-cont{
+   width:100%;
+   height: 100%;
+}
+.panel{
+    float:left;
+    height:100%;
+}
+.panel-icon{
+    width:20%;
+}
+.chapter-icon{
+    height:90rpx;
+    width: 90rpx;
+    margin: 0 auto;
+    padding-top:20px;
+
+}
+.chapter-icon image{
+    width:100%;
+    height:100%;
+    margin:0 auto;
+    display:block;
+border-radius:50%;
+
+}
+.panel-pic{
+    width:70%;
+}
+.panel-pic image{
+    width:100%;
+    height: 100%;
+    display:block;
+    margin:0 auto;
+
+}
+.panel-des{
+    width:10%;
+}
+.des{
+    width:100%;
+height:100%;
+display:block;
+margin:0 auto;
+
+}
+
+.chapter-bar{
+    border-bottom:2rpx solid #434343;
+    font-size:28rpx;
+    color:#949494;
+    line-height:60rpx;
+
+}
+.btn{
+    display:inline-block;
+    padding:0 20rpx;
+}
+.chapter-bar .selected{
+    border-bottom:3rpx solid #e85c00;
+    color:#e85c00;
+
+}
+.list-item{
+    width:100%;
+    line-height:50rpx;
+}
+.list-item-icon1,.list-item-icon2,.list-item-title{
+    display:inline-block;
+}
+.list-item-icon1{
+    width: 20rpx;
+    height:20rpx;
+    background-color:#e85c00;
+    margin-right:20rpx;
+}
+.chapter-list-item{
+    color:#949494;
+    font-size:28rpx;
+    border-bottom:2rpx solid #434343;
+}
+.list-remark{
+    padding:20rpx 0 10rpx 40rpx;
+}
+.poRight{
+    color:red;
+    float:right;
+}
+.pcont{
+    display:inline-block;
+    float:left;
+    height:100%;
+    box-sizing:border-box;
+    padding-top:20rpx;
+}
+.panel-cont-icon{
+    width:5%;
+    padding-top:30rpx;
+}
+.panel-cont-det{
+    width:83%;
+    font-size:30rpx;
+}
+.first-col-item{
+    display:inline-block;
+    vertical-align:text-top;
+    height:50rpx;
+    line-height:50rpx;
+}
+.panel-bell{
+
+}
+.panel-title{
+    color:#e85c00;
+}
+.date-picker{
+    border:2rpx solid #949494;
+    padding-right:20rpx;
+    float:right;
+    font-size:26rpx;
+}
+
+.panel-closed{
+    width:12%;
+}
+
+
+.second-col{
+    position:relative;
+    height:70%;
+}
+.panel-remark{
+    position:absolute;
+    bottom:0;
 }

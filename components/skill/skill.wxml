@@ -10,7 +10,7 @@
     </view>
 
     <scroll-view wx:if="{{titleIndex==='1'}}" class="yidongChapter" scroll-y="true" style="height:{{scrollViewHeight}}px;">
-        <view class="chapter" wx:for="{{chapterDetail}}" wx:key="{{item.sort}}">
+        <view class="chapter" wx:for="{{chapterDetail}}" wx:key="{{item.sort}}" data-chapter="{{item}}" bindtap="navigateToChapter">
             <view class="chapter-icon">
                 <image class="" src="{{item.url}}" mode="aspectFitx" style=""/>
                   

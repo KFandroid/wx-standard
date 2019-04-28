@@ -3,6 +3,8 @@
 /* components/targetGraph/targetGraph.wxss */
 .cover{
     overflow: auto;
+    color:#949494;
+
 }
 .main-title {
     font-size: 24rpx;

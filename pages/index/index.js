@@ -23,10 +23,14 @@ Page({
     pagesrc: '',
     indexSearchHeight: 300,
     proInfo:null,
-    funcInfo:null,
     iconInfo:null,
+    funcInfo:null,
     picInfo:null,
-    chapterDetail:null
+    chapterDetail:null,
+    isYidong: 1,
+    currentChapter:null,
+    chapter:null,
+    date:"2015-09-01"
   },
 
   /**
@@ -35,8 +39,9 @@ Page({
   onLoad: function(options) {
     //模拟异动xx篇 数据
     var proInfo=require('../../utils/moce/B1.js');
-    var funcInfo= require('../../utils/moce/B2.js')
+    
     var iconInfo= require('../../utils/moce/B3.js');
+    var funcInfo= require('../../utils/moce/B2.js')
     var picInfo= require('../../utils/moce/B4.js');
     
     
@@ -59,12 +64,12 @@ Page({
     
     this.setData({
       proInfo:proInfo.data,
-      funcInfo:funcInfo.data,
       iconInfo:iconInfo.data,
       picInfo:picInfo.data,
-      chapterDetail:sum
+      funcInfo:funcInfo.data,
+      chapterDetail:sum,
+      chapterType:1,
     })
-    
     
     // storage.addFile(Object.assign({ctx: this}, fileList.file101))
   },
@@ -76,6 +81,117 @@ Page({
 
   },
 
+  
+
+  //监听yidong组件 
+  onGetYidong: function(e){
+    //获取高度
+    let contHeight 
+    const sysInfo = wx.getSystemInfoSync()
+    const query = wx.createSelectorQuery().in(this)
+    query.select('.search-btn').boundingClientRect(function (res) {
+      res.top
+    })
+    query.select('.index-panel').boundingClientRect(function (res) {
+      res.top
+    })
+    
+   
+    query.exec((res) => {
+      contHeight = sysInfo.windowHeight - res[0].height - res[1].height-30
+      this.setData({
+        contHeight,
+      })
+     
+    }) 
+
+
+    let currentPid = e.detail.currentChapter.pid
+    
+    if(currentPid!==''){
+      //根据pid 获取 pic
+      for(var i=0;i<this.data.picInfo.length;i++){
+        if(currentPid==this.data.picInfo[i].pid){
+          this.setData({
+            getChapterPic:this.data.picInfo[i]
+          })
+        }
+      }
+      let currentChapterDetail=[];
+      //根据pid获取 funcInfo title
+      for(let i=0;i<this.data.funcInfo.length;i++){
+        if(currentPid==this.data.funcInfo[i].pid){
+          currentChapterDetail.push(this.data.funcInfo[i])
+        }
+      }
+      console.log(currentChapterDetail)
+      this.setData({
+        currentChapterDetail,
+      })
+      
+    }
+    this.setData({
+      isYidong:e.detail.isYidong,
+      currentChapter:e.detail.currentChapter,
+      
+    })
+
+
+
+    this.typeWhich()
+
+    if(this.data.currentChapterDetail.length===0){
+      this.setData({
+        isBlank:true
+      })
+    }
+
+  },
+  getSelected(e){
+    
+    this.setData({
+      chapterType:e.currentTarget.dataset.type
+    })
+    this.typeWhich()
+   
+  },
+  typeWhich(){
+    //判断数据类型
+    if(this.data.chapterType==1){
+      console.log('1',this.data.currentChapterDetail)
+      this.setData({
+        list1 : this.data.currentChapterDetail.filter((item) => item.type=='1')
+      })
+    }else if(this.data.chapterType==2){
+      this.setData({
+        list2 : this.data.currentChapterDetail.filter((item) => item.type=='2')
+      })
+      }
+  },
+  changeChapType(e){
+    console.log(e.currentTarget.dataset.chaptype)
+    if(this.data.isYidong == 2){
+      this.setData({
+        isYidong:1
+      })
+    }else if(this.data.isYidong == 3){
+      this.setData({
+        isYidong: 2
+      })
+    }
+  },
+  gotoDetail(e){
+    this.setData({
+      isYidong:3,
+      chapter:e.currentTarget.dataset.detail
+    })
+  },
+  bindDateChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -120,6 +236,7 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
+  
   onHide: function() {
     storage.clearFile()
   },

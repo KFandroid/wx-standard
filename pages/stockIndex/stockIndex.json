@@ -25,6 +25,6 @@
     "component-optionalStock": "../../components/optionalStock/optionalStock",
     "stock-notice" : "../../components/notice/notice"
   },
-  "navigationBarBackgroundColor":"#1b1b1b",
+  "navigationBarBackgroundColor":"#282828",
   "navigationBarTextStyle": "white"
 }

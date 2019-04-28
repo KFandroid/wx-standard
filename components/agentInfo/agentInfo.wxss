@@ -31,7 +31,7 @@
 .item {
   flex: 1;
   text-align: center;
- color:#d7d7d7;
+ color:#949494;
 }
 
 .item.sp {
