@@ -3606,10 +3606,10 @@ Component({
       ctx.closePath()
       ctx.stroke()
     },
-    drawYLine(yPosition, ctx) {
+    drawYLine(yPosition, ctx,dash) {
       // ctx.setStrokeStyle('black')
       ctx.beginPath()
-      ctx.setLineDash([3, 3], 10)
+      ctx.setLineDash([dash, dash], 10)
       ctx.moveTo(0, yPosition)
       ctx.lineTo(this.data.xRange[1], yPosition)
       ctx.closePath()
@@ -3627,7 +3627,11 @@ Component({
       const YLineArr = [midY, firstY, lastY]
       // ctx.beginPath()
       for(let i = 0; i < YLineArr.length; i++) {
-        this.drawYLine(YLineArr[i], ctx)
+        if(i==0){
+          this.drawYLine(YLineArr[i], ctx,2)
+        }else{
+          this.drawYLine(YLineArr[i], ctx,3)
+        }
       }
       
     },

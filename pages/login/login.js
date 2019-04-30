@@ -174,7 +174,7 @@ Page({
       
       if(app.globalData.currentPage !== 'index' && app.globalData.currentPage !== 'stockIndex') {
         app.globalData.currentPage = 'index'
-        wx.navigateTo({
+        wx.redirectTo({
           url: '../index/index'
         })
       }

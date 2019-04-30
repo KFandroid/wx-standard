@@ -26,5 +26,7 @@
     "stock-notice" : "../../components/notice/notice"
   },
   "navigationBarBackgroundColor":"#282828",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#1b1b1b",
+  "disableScroll": true
 }

@@ -687,7 +687,12 @@ Component({
       
       let temp = this.data.height / 4
       for (let i = 0; i < 3; i++) {
-        this.drawLine(0, temp * (i + 1), this.data.width, temp * (i + 1), '#363636')  //#ddd
+        
+        if(i==1){
+          this.drawLine(0, temp * (i + 1), this.data.width, temp * (i + 1), '#363636',3,5)  //#ddd
+        }else{
+          this.drawLine(0, temp * (i + 1), this.data.width, temp * (i + 1), '#363636',2,5)  //#ddd
+        }
       }
     },
     drawSingle(x, high, y1, y2, low, color) {
@@ -695,9 +700,10 @@ Component({
       this.drawLine(x, y1, x, high, color)
       this.drawRect(x, y1, y2, color)
     },
-    drawLine(x, y, X, Y, color) {
+    drawLine(x, y, X, Y, color,dash1,dash2) {  //y线
       this.data.context.strokeStyle = color;
       this.data.context.beginPath();
+      this.data.context.setLineDash([dash1, dash1], dash2)
       this.data.context.moveTo(x, y);
       this.data.context.lineTo(X, Y);
       this.data.context.stroke();

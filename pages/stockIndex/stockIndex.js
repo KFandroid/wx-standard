@@ -2084,19 +2084,26 @@ Page({
     query.select('.main-view').boundingClientRect(function (res) {
       res.top
     })
-    query.exec((res) => {
-      underViewHeight = underViewHeight - res[4].height - res[5].height - 52
-      if(sysInfo.windowHeight > 850) {
-        underViewHeight -= 30
-      }
-      this.setData({
-        underViewHeight,
-      })
-    })
-
     query.select('.right-top').boundingClientRect(function (res) {
       res.top
     })
+    query.select('.under').boundingClientRect()
+    query.select('.menu-bar-title').boundingClientRect()
+    query.exec((res) => {
+      
+      underViewHeight = underViewHeight - res[4].height - res[5].height - res[7].height - res[8].height
+/*       if(sysInfo.windowHeight > 850) {
+        underViewHeight -= 30
+      } *//* else if(sysInfo.screenHeight ==720){
+        underViewHeight +=3
+      } */
+      this.setData({
+        underViewHeight,
+      })
+
+    })
+
+    
     query.exec((res) => {
       this.setData({
         rightBottomHei : res[5].height-res[6].height

@@ -37,6 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    
     //模拟异动xx篇 数据
     var proInfo=require('../../utils/moce/B1.js');
     
@@ -98,10 +99,15 @@ Page({
     
    
     query.exec((res) => {
-      contHeight = sysInfo.windowHeight - res[0].height - res[1].height-30
+      contHeight = sysInfo.windowHeight - res[0].height - res[1].height
+      
+      let otherHeight = 340/(sysInfo.screenHeight*sysInfo.pixelRatio)*sysInfo.windowHeight  //chapterPanel chapter-bar (rpx=>px)
+      console.log(contHeight,otherHeight)
       this.setData({
+        panelHeight:contHeight,
         contHeight,
       })
+      console.log(this.data.contHeight)
      
     }) 
 
@@ -203,6 +209,7 @@ Page({
     storage.deleteFile(101)
     let indexSearchHeight
     const query = wx.createSelectorQuery().in(this)
+    console.log(sysInfo)
     query.select('.search-btn').boundingClientRect(function (res) {
       res.top
     })

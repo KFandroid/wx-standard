@@ -33,8 +33,8 @@
 .menu-bar {
   height: 48rpx;
   width: 100%;
-  border-top: 2rpx solid gray;
-  border-bottom: 2rpx solid gray;
+  border-top: 2rpx solid #434343;
+  border-bottom: 2rpx solid #434343;
   font-size: 24rpx;
   color:#bcbcbc;
 }
@@ -47,7 +47,7 @@
   width: 68rpx;
   text-align: center;
   font-size: 22rpx;
-  border-left: 2rpx solid gray;
+  border-left: 2rpx solid #434343;
   color:#868686;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .main-view {
-  border-bottom: 2rpx solid #363636;
+  border-bottom: 2rpx solid #434343;
 }
 
 .main-view .left {
@@ -98,8 +98,8 @@
 
 .left-menu-bar {
   height: 48rpx;
-  border-top: 2rpx solid gray;
-  border-bottom: 2rpx solid gray;
+  border-top: 2rpx solid #434343;
+  border-bottom: 2rpx solid #434343;
 }
 
 .left-menu-bar .item, .bar-item {
@@ -112,14 +112,14 @@
 }
 
 .right {
-  border-left: 2rpx solid gray;
+  border-left: 2rpx solid #434343;
 }
 
 .right-top {
   height: 300rpx;
   box-sizing: border-box;
-  border-top: 2rpx solid gray;
-  border-bottom: 2rpx solid gray;
+  border-top: 2rpx solid #434343;
+  border-bottom: 2rpx solid gr#434343ay;
 }
 
 .right-bottom {
@@ -287,7 +287,8 @@
   width: 100%;
   height: 50rpx;
   border-bottom: none;
-  border-top: none;
+  border-top:2rpx solid #434343;
+
   justify-content: flex-start;
   /*padding: 0 4rpx;*/
   box-sizing: border-box;
@@ -296,7 +297,7 @@
 
 .under_content {
   width: 100%;
-  border: 1rpx solid gray;
+  border: 2rpx solid #434343;
   border-bottom: none;
   border-top: none;
   display: flex;
@@ -309,7 +310,7 @@
   font-size: 30rpx;
   width: 130rpx;
   text-align: center;
-  border-right: 2rpx solid gray;
+  border-right: 2rpx solid #434343;
   box-sizing: border-box;
   color:#868686;
   background-color:#282828;
@@ -330,7 +331,7 @@
   box-sizing: border-box;
   margin: 7rpx;
   border: 0;
-  border-right: 1rpx solid gray;
+  border-right: 1rpx solid #434343;
   padding-right: 10rpx;
   /* color: #169bd5; */
   text-decoration: underline;

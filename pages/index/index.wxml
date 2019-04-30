@@ -36,17 +36,18 @@
     </view>
 
     <!-- 2、点击icon跳转到此 -->
-    <view  wx:if="{{isYidong==2}}" class="panelD">
+    <view  wx:if="{{isYidong==2}}" class="panelD" style="height:{{panelHeight}}px;">
         <view class="chapterPanel" >
             <view class="panel-cont">
                 <view class="panel panel-icon">
-                
-                    <view class="chapter-icon">
-                        <image mode="aspectFit" src="{{currentChapter.url}}" style=""/>
-                    </view>
-                    <view class="chapter-title" style="text-align:center;">
-                        {{currentChapter.pname}}
-                    </view>
+                    <view class="panelIcon">
+                        <view class="chapter-icon">
+                            <image mode="aspectFit" src="{{currentChapter.url}}" style=""/>
+                        </view>
+                        <view class="chapter-title" style="text-align:center;">
+                            {{currentChapter.pname}}
+                        </view>
+                        </view>
                 </view>
                 <view class="panel panel-pic">
                     <image class="" src="{{getChapterPic.url}}" mode="aspectFit" />
@@ -56,7 +57,7 @@
                 </view>
             </view>
         </view>
-        <view class="chapterContent" style="height:{{contHeight}}px">
+        <view class="chapterContent" >
             <view class="chapter-bar">
                 <view class="btn {{chapterType==1?'selected':''}}" bindtap="getSelected" data-type="1">
                     当日
@@ -70,11 +71,13 @@
                     关
                 </view>
             </view>
-            <scroll-view class="chapter-list" scroll-y="true" style="height:{{contHeight-30}}px">
+            <scroll-view class="chapter-list" scroll-y="true" style="height:{{panelHeight*0.7}}px">
                 <view class="chapter-list-item" wx:if="{{currentChapterDetail.length!==0}}" wx:for="{{chapterType==1?list1:list2}}" wx:key="index" bindtap="gotoDetail" data-detail="{{item}}">
                     <view class="list-item">
                         <view class="list-item-icon1"></view>
-                        <view class="list-item-icon2"></view>
+                        <view class="list-item-icon2">
+                            <image mode="scaleToFill" src="{{index==0?'../../utils/images/bell-open.png':'../../utils/images/bell-close.png'}}" />
+                        </view>
                         <view class="list-item-title">
                             {{item.name}}
                         </view>

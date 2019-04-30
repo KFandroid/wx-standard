@@ -18,8 +18,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ff6600",
     "navigationBarTitleText": "异动1.0",
-    "navigationBarTextStyle": "black",
-    "disableScroll": true
+    "navigationBarTextStyle": "black"
+    
   },
   "sitemapLocation": "sitemap.json"
 }

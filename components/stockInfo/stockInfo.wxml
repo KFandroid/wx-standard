@@ -21,7 +21,7 @@
     <text>额<text class="bgd">{{stockInfo.volume}}</text></text>
   </view>
   <view class="flex-cell col-16-2 flex-2-row">
-    <navigator url="../../pages/search/search?from=index" class="btn" bindtap="viewTap" style="height:100%; box-sizing:border-box;width:100%;border-bottom:2rpx solid gray;border-left:2rpx solid gray;padding-bottom:24rpx;padding-left:24rpx;position:relative;">
+    <navigator url="../../pages/search/search?from=index" class="btn" bindtap="viewTap" style="height:100%; box-sizing:border-box;width:100%;border-left:2rpx solid #434343;padding-bottom:24rpx;padding-left:24rpx;position:relative;">
       <image src="../../utils/images/search.png" style='max-width: 50rpx;height: 50rpx;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);' mode="aspectFit"></image>
     </navigator>
     <!--<view class="btn" bindtap="showPopup" style="height:50%; box-sizing:border-box;width:100%;border-left:2rpx solid gray;padding-bottom:12rpx;padding-left:24rpx;">

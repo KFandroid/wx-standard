@@ -167,7 +167,7 @@
   </view>
   <view class="main-view flex-box col-16-16 under-view">
     <view class="left col-24-16">
-      <view class="menu-bar flex-box col-16-16" style="border-top:none;justify-content:flex-start;">
+      <view class="menu-bar flex-box col-16-16 menu-bar-title" style="border-top:none;justify-content:flex-start;">
         <view class="btn" style='width:160rpx;color:#868686;background-color:#363636;'>
           项目：{{bottomTab[bottomIndex - 1].name}}
         </view>

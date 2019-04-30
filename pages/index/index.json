@@ -6,5 +6,6 @@
     "component-yidong": "../../components/skill/skill"
   },
   "navigationBarBackgroundColor":"#282828",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "disableScroll": true
 }
