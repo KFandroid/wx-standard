@@ -204,6 +204,7 @@
     }
   
     sendMessage(msg) {
+      console.log('请求',msg)
       wx.sendSocketMessage({
         data: msg,
         success(data) {

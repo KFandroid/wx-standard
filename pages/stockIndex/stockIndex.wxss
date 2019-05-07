@@ -119,7 +119,7 @@
   height: 300rpx;
   box-sizing: border-box;
   border-top: 2rpx solid #434343;
-  border-bottom: 2rpx solid gr#434343ay;
+  border-bottom: 2rpx solid #434343;
 }
 
 .right-bottom {

@@ -12,7 +12,8 @@ Page({
   data: {
     date: util.formatDate(new Date()),
     stockList: [],
-    searchList: [{ "stockCode": "A00001", "code": "060001", "stockName": "上证指数", "py": "SZZS", "market": "上指", "type": "" },
+    searchList: [
+    { "stockCode": "A00001", "code": "060001", "stockName": "上证指数", "py": "SZZS", "market": "上指", "type": "" },
     { "stockCode": "A00002", "code": "060002", "stockName": "Ａ股指数", "py": "AGZS", "market": "上指", "type": "" },
     { "stockCode": "A00003", "code": "060003", "stockName": "Ｂ股指数", "py": "BGZS", "market": "上指", "type": "" },
     { "stockCode": "B00001", "code": "060009", "stockName": "深证成指", "py": "SZCZ", "market": "深指", "type": "" },
@@ -25,7 +26,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.log(options)
+    console.log('from',options.from)
     this.data.from = options.from
     this.data.stockList = app.globalData.a105.data
   },

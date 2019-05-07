@@ -13,7 +13,10 @@ Component({
   properties: {
     stockInfo: {
       type: Object,
-      value: {}
+      value: {},
+      observer(data) {
+        console.log(data)
+      }
     }
   },
 

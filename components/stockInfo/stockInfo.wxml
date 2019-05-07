@@ -4,16 +4,16 @@
     <text>{{stockInfo.name}}</text>
     <text>{{stockInfo.stockNo}}</text>
   </view>
-  <view class="flex-cell col-16-2 flex-2-row bgb">
-    <text>{{stockInfo.current}}</text>
-    <text>{{stockInfo.rise}}%</text>
+  <view class="flex-cell col-16-2 flex-2-row">
+    <text class="{{stockInfo.current>stockInfo.close?'bgb':'bgc'}} {{stockInfo.current == stockInfo.close?'bgd':''}}">{{stockInfo.current}}</text>
+    <text class="{{stockInfo.rise>0?'bgb':'bgc'}} {{stockInfo.rise == 0?'bgd':''}}">{{stockInfo.rise}}%</text>
   </view>
   <view class="flex-cell col-16-3 flex-2-row bga">
-    <text>高<text class="bgb">{{stockInfo.high}}</text></text>
-    <text>低<text class="bgc">{{stockInfo.low}}</text></text>
+    <text>高<text class="{{stockInfo.high>stockInfo.close?'bgb':'bgc'}} {{stockInfo.high==stockInfo.close?'bgd':''}}">{{stockInfo.high}}</text></text>
+    <text>低<text class="{{stockInfo.low>stockInfo.close?'bgb':'bgc'}} {{stockInfo.low==stockInfo.close?'bgd':''}}">{{stockInfo.low}}</text></text>
   </view>
   <view class="flex-cell col-16-3 flex-2-row bga">
-    <text>开<text class="bgb">{{stockInfo.open}}</text></text>
+    <text>开<text class="{{stockInfo.open>stockInfo.close?'bgb':'bgc'}}">{{stockInfo.open}}</text></text>
     <text>收<text class="bgd">{{stockInfo.close}}</text></text>
   </view>
   <view class="flex-cell col-16-3 flex-2-row bga">

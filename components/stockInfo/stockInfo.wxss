@@ -38,11 +38,11 @@
   color:#949494;
 }
 .bgb{
-  color:#a21d10;
+  color:#a21d10; 
 }
 .bgc{
-  color:#048204;
+  color:#048204;  
 }
 .bgd{
-  color:#bcbcbc;
+  color:#bcbcbc!important;
 }

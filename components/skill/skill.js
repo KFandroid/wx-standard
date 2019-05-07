@@ -55,6 +55,7 @@ Component({
         this.setData({
           chapterDetail:oridata
         })
+        console.log(oridata)
        
       }
     },

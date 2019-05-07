@@ -49,7 +49,7 @@ Component({
           this.setData({
             saleData,
             buyData,
-            /* pcp: newData.pcp */
+            pcp: newData.pcp
           })
         }
         
