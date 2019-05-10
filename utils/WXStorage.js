@@ -204,7 +204,9 @@
     }
   
     sendMessage(msg) {
-      console.log('请求',msg)
+/*       if(msg.indexOf('112') == 0){
+        console.log('请求',msg)
+      } */
       wx.sendSocketMessage({
         data: msg,
         success(data) {

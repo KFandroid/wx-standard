@@ -158,6 +158,7 @@ import {
       temp.num = Math.round(dataView.getFloat32(i * dataByteLength + 36 + 6))
       data.data.push(temp)
     }
+    //console.log('110',data)
     return data
   }
   
@@ -202,7 +203,7 @@ import {
     data.timestamp = addZero(dataView.getInt32(10), 6)
     data.date = formatDate2(new Date(parseInt(data.timestamp) * 1000))
     data.totalPage = addZero('', 3)
-    data.page = addZero('', 3)
+    data.page = addZero(dataView.getInt16(14),3)//addZero('', 3)
     data.sortCode = '0000'
     data.data = []
     let dataByteLength
@@ -260,7 +261,6 @@ import {
       temp.date = utf8ByteArrayToString(strArr).replace(/\u0000/g, "")
       data.data.push(temp)
     }
-    
     return data
   }
   

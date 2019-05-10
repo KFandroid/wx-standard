@@ -3187,7 +3187,7 @@ Component({
     drawData: {
       type: Object,
       value: {},
-      observer(newData, oldData) {
+      observer(newData) {
         if(newData.data.length === 0) {
           this.clearCanvas()
         }
@@ -3233,7 +3233,6 @@ Component({
       type: Object,
       value: {},
       observer(newData) {
-        
         if (newData.jhjj == true) {
           this.data.DrawM30 = false
           this.openjhjj()

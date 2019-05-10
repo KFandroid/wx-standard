@@ -13,7 +13,7 @@
     <text>低<text class="{{stockInfo.low>stockInfo.close?'bgb':'bgc'}} {{stockInfo.low==stockInfo.close?'bgd':''}}">{{stockInfo.low}}</text></text>
   </view>
   <view class="flex-cell col-16-3 flex-2-row bga">
-    <text>开<text class="{{stockInfo.open>stockInfo.close?'bgb':'bgc'}}">{{stockInfo.open}}</text></text>
+    <text>开<text class="{{stockInfo.open>stockInfo.close?'bgb':'bgc'}} {{stockInfo.open==stockInfo.close?'bgd':''}}" >{{stockInfo.open}}</text></text>
     <text>收<text class="bgd">{{stockInfo.close}}</text></text>
   </view>
   <view class="flex-cell col-16-3 flex-2-row bga">

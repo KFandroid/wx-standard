@@ -15,7 +15,6 @@ Component({
       type: Object,
       value: {},
       observer(data) {
-        console.log(data)
       }
     }
   },

@@ -757,6 +757,7 @@ Page({
           ctx: this,
           intervalTime: 2000,
           changeCb: (data) => {
+            
             if (!data.data.length) {
               return
             }
@@ -768,6 +769,8 @@ Page({
             let tempData = Object.assign({}, data)
 
             tempData.data = [].concat(this.data.drawData.data)
+            
+            
             if (tempData.data.length === 0) { // 原数据为空则全部拷贝
               tempData.data = tempData.data.concat(data.data)
             } else {
@@ -838,7 +841,6 @@ Page({
               val = this.createKeyStr112(112, '000000', this.data.stockCode, true,
                 app.globalData['a' + val.storage].totalPage)
             }
-
             return val
           }
         })
@@ -1426,6 +1428,7 @@ Page({
     this.settingHandler()
     if (this.data.hideBack && !this.data.stockChanged) {
       this.getIntervalData()
+      this.getKData()
       return
     }
 
@@ -1684,7 +1687,6 @@ Page({
         }
       })
     }
-
   },
   getKData() {
     if (this.data.stockChanged) {
@@ -1791,7 +1793,6 @@ Page({
               val = this.createKeyStr112(112, '000000', this.data.stockCode, true,
                 app.globalData['a' + val.storage].totalPage)
             }
-
             return val
           }
         })
@@ -2057,7 +2058,7 @@ Page({
     query.exec((res) => {
       let height = res[0].height
       let width = res[0].width - 1
-
+      
       this.setData({
         diagramHeight: height,
         diagramWidth: width
@@ -2144,6 +2145,7 @@ Page({
     return value
   },
   createKeyStr112: function (fileType, itemCode, stockCode, isStatic = false, customPage = 0) {
+    
     let page = addZero(this.data.page, 3)
     let dateStr = this.data.date.split('-').join('')
     let sortCode
@@ -2361,7 +2363,7 @@ Page({
     
     let nextIndex = (index + direction + stockList.length) % stockList.length
     let currentStock = stockList[nextIndex]
-
+    console.log('currentStock is', currentStock)
     let data = wx.getStorageSync(
       'globalData' + currentStock.stockCode
     )
@@ -2531,6 +2533,7 @@ Page({
     this.settingHandler()
     this.initTabSelect()
     if (Object.keys(stockInfo).length > 0) {
+      
       if (this.data.stockChanged) {
         this.getKData()
         this.getSubTableData()

@@ -89,10 +89,12 @@
                     <label class="checkbox">
                         <checkbox value="{{index+','+item.name}}" checked="{{item.checked}}" />
                     </label>
-                    <view style="transform: translateY(-26rpx); display:inline-block; margin-right: 20rpx;">
+                    <view class="zhouqi">
                         周期{{index + 1}}
                     </view>
-                    <input data-flag="kydjxPeriod" data-check="{{item.check}}" data-index="{{index}}" bindinput="bindinput" maxlength="2" value="{{item.name}}" />
+                    <view class="input1">
+                        <input data-flag="kydjxPeriod" data-check="{{item.check}}" data-index="{{index}}" bindinput="bindinput" maxlength="2" value="{{item.name}}" />
+                    </view>
                 </view>
             </checkbox-group>
         </view>
@@ -103,10 +105,12 @@
                     <label class="checkbox">
                         <checkbox value="{{index+','+item.name}}" checked="{{item.checked}}" />
                     </label>
-                    <view style="transform: translateY(-26rpx); display:inline-block;">
+                    <view class="zhouqi" >
                         周期{{index}}
                     </view>
-                    <input data-flag="kcbjxPeriod" data-check="{{item.check}}" data-index="{{index}}" bindinput="bindinput" maxlength="2" value="{{item.name}}" />
+                    <view class="input1">
+                        <input data-flag="kcbjxPeriod" data-check="{{item.check}}" data-index="{{index}}" bindinput="bindinput" maxlength="2" value="{{item.name}}" />
+                    </view>
                 </view>
             </checkbox-group>
         </view>
@@ -117,10 +121,12 @@
                     <label class="checkbox">
                         <checkbox value="{{index+','+item.name}}" checked="{{item.checked}}" />
                     </label>
-                    <view style="transform: translateY(-26rpx); display:inline-block;">
+                    <view class="zhouqi" >
                         周期{{index}}
                     </view>
-                    <input data-flag="kcjljxPeriod" data-check="{{item.check}}" data-index="{{index}}" bindinput="bindinput" maxlength="2" value="{{item.name}}" />
+                    <view class="input1">
+                        <input data-flag="kcjljxPeriod" data-check="{{item.check}}" data-index="{{index}}" bindinput="bindinput" maxlength="2" value="{{item.name}}" />
+                    </view>
                 </view>
             </checkbox-group>
         </view>
@@ -141,6 +147,7 @@
         <view class="btn-ok" bindtap='ok'>确定</view>
     </view>
 </view>
+
 <popup id='popup' title='添加自选股' btn_no='取消' btn_ok='确定' bind:no="closePop" bind:ok="addCustom">
     <view slot="content">
         <picker class="picker" bindchange="bindPickerChange" value="{{selectedId}}" range="{{selector}}" range-key="name">
